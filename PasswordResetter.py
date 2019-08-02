@@ -23,8 +23,6 @@ class PasswordResetter:
         self.buro_email = self.username + "@buroserv.com.au"
         self.planettel_email = self.username + "@planettel.com.au"
         self.newPassword = ""
-
-    def setupDriver(self):
         # Set up webdriver
         self.driver = webdriver.Chrome(r"Drivers/chromedriver.exe")
         self.driver.maximize_window()
@@ -56,33 +54,9 @@ class PasswordResetter:
 
         time.sleep(2)
         self.driver.get(r"http://ims.buroserv.com.au/users.php")
-        email = self.driver.find_element_by_id("adduser-email")
-        username = self.driver.find_element_by_id("adduser-username")
-        password = self.driver.find_element_by_id("adduser-password")
-        confirm_password = self.driver.find_element_by_id("adduser-confirm_password")
-        firstName = self.driver.find_element_by_id("adduser-first_name")
-        lastName = self.driver.find_element_by_id("adduser-last_name")
-        email.send_keys(self.buro_email)
-        username.send_keys(self.username)
-        password.send_keys("Temp123")
-        confirm_password.send_keys("Temp123")
-        firstName.send_k
-        lastName.send_keys(self.lastName)
 
-        self.driver.find_element_by_id("btn-add-user").click()
-
-        print("Please choose a suitable role for the user.")
-        input("Press enter when done and the script will proceed.")
-
-        # Check if user exists after creation
         search = self.driver.find_element_by_xpath('//*[@id="users-list_filter"]/label/input')
         search.send_keys(self.username)
-        users_list = self.driver.find_element_by_id("users-list").text
-        if self.username in users_list:
-            self.logbook.append((17, self.username, "Temp123"))
-            print("IMS user successfully created...")
-        else:
-            print("IMS user not created!")
 
     def iboss(self):
         self.driver.get(r"https://symbio-aspire.iboss.com.au/aspireV2/login.php")
@@ -520,7 +494,6 @@ def main():
 
     elif answer == "Y" or answer == 'y':
         ac = PasswordResetter(name)
-        ac.setupDriver()
         ac.pickPortal()
         print("New Password: " + ac.newPassword)
         ac.teardown()
