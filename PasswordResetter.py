@@ -100,24 +100,7 @@ class PasswordResetter:
         password.send_keys("Douchebag!2")
         password.send_keys(Keys.ENTER)
         self.driver.find_element_by_xpath('//span[text()="Login"]').click()
-        self.driver.get(r"https://octane.telcoinabox.com/tiab/NewUser.jsp")
-        username = self.driver.find_element_by_id("uid")
-        password = self.driver.find_element_by_id("predigpass")
-        username.send_keys(self.username)
-        newPass = self.passwordGenerator()
-        password.send_keys(newPass)
-
-        self.driver.find_element_by_id("submit-button").click()
-
-        # Check if user exists after creation
         self.driver.get(r"https://octane.telcoinabox.com/tiab/UserList")
-        users_list = self.driver.find_element_by_xpath('//*[@id="user-list"]/div[2]/table/tbody').text
-        if self.username in users_list:
-            self.logbook.append((7, self.username, newPass))
-            print("Octane user successfully created...")
-        else:
-            print("Octane user not created!")
-        # TODO: add partitions??
 
     def clarus_genex(self):
         self.driver.get(r"https://genex.billing.com.au/Module/Main/login.aspx")
@@ -227,36 +210,6 @@ class PasswordResetter:
 
         self.driver.find_element_by_class_name("rootVoices").click()
         self.driver.find_element_by_link_text("Users").click()
-        self.driver.find_element_by_xpath('//button[text()="Create User"]').click()
-        time.sleep(2)  # wait for js to load
-        self.driver.find_element_by_id("EndUserActor2671createUserenabled").click()
-        username = self.driver.find_element_by_name("username")
-        password = self.driver.find_element_by_name("password")
-        surname = self.driver.find_element_by_name("surname")
-        firstName = self.driver.find_element_by_name("firstName")
-        email = self.driver.find_element_by_name("emailAddress")
-        dob = self.driver.find_element_by_name("dateOfBirth")
-        phone = self.driver.find_element_by_name("phoneNumberBH")
-        sonar_username = self.firstName + self.lastName[0]
-        username.send_keys(sonar_username)
-        newPass = self.passwordGenerator()
-        password.send_keys(newPass)
-        surname.send_keys(self.lastName)
-        firstName.send_keys(self.firstName)
-        email.send_keys(self.buro_email)
-        dob.send_keys("2019-01-01 00:00")
-        phone.send_keys("1")
-
-        self.driver.find_element_by_xpath('//button[text()="Submit"]').click()
-
-        # Check if user exists after creation
-        users_list = self.driver.find_element_by_id("EndUserActor2671UsersListingTable").text
-        if sonar_username in users_list:
-            self.logbook.append((29, sonar_username, newPass))
-            print("Sonar user successfully created...")
-        else:
-            self.logbook.append((29, sonar_username, newPass)) #FIX THIS IF HAVE TIME!!!
-            print("Sonar user not created!")
 
     def supatools(self):
         self.driver.get(r"https://support.viptelecombilling.net.au/login.php")
@@ -267,42 +220,6 @@ class PasswordResetter:
         password.send_keys(Keys.ENTER)
 
         time.sleep(2)  # wait for page to load
-        frame = self.driver.find_element_by_xpath('/html/frameset/frameset/frame[1]')
-        self.driver.switch_to.frame(frame)
-        self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/a/img').click()
-        self.driver.switch_to.default_content()
-        frame = self.driver.find_element_by_xpath('/html/frameset/frameset/frame[2]')
-        self.driver.switch_to.frame(frame)
-        self.driver.find_element_by_xpath(
-            '/html/body/table/tbody/tr/td/table/tbody/tr[1]/td/table[2]/tbody/tr/td[4]/a/img').click()
-        self.driver.find_element_by_name("newci").click()
-        drop_down = Select(
-            self.driver.find_element_by_xpath('/html/body/form/table/tbody/tr/td/table/tbody/tr[1]/td[2]/select'))
-        drop_down.select_by_visible_text("PlanetTel")
-        time.sleep(2)  # wait for page to load
-        fullName = self.driver.find_element_by_id("__name")
-        title = self.driver.find_element_by_id("__job_title")
-        email = self.driver.find_element_by_id("__email")
-        self.driver.find_element_by_name("__can_switch_co").click()
-        access_role = Select(self.driver.find_element_by_id("__access_role_id"))
-        access_role.select_by_visible_text("Planet Tel")
-        access_level = Select(self.driver.find_element_by_id("__access_level"))
-        access_level.select_by_visible_text("Service Desk")
-        username = self.driver.find_element_by_id("__user_id")
-        password = self.driver.find_element_by_id("f_password")
-        confirm_password = self.driver.find_element_by_id("confirm_password")
-        status = Select(self.driver.find_element_by_name("__status"))
-        status.select_by_visible_text("Reset")
-        send_email = Select(self.driver.find_element_by_id("user_email_template"))
-        send_email.select_by_visible_text("user_creation_password.txt")
-        fullName.send_keys(self.fullname)
-        title.send_keys(self.title)
-        email.send_keys(self.buro_email)
-        username.send_keys(self.username)
-        password.send_keys("Temp123")
-        confirm_password.send_keys("Temp123")
-
-        self.driver.find_element_by_id("savebtn").click()
 
         # Check if user exists after creation
         time.sleep(2)
@@ -310,18 +227,8 @@ class PasswordResetter:
         frame = self.driver.find_element_by_xpath('/html/frameset/frame')
         self.driver.switch_to.frame(frame)
         search = self.driver.find_element_by_xpath('//*[@id="filter"]')
-        search.send_keys(self.fullname)
+        search.send_keys(self.username)
         search.send_keys(Keys.ENTER)
-        try:
-            self.driver.switch_to.default_content()
-            frame = self.driver.find_element_by_xpath('/html/frameset/frameset/frame[2]')
-            self.driver.switch_to.frame(frame)
-            users_list = self.driver.find_element_by_xpath('/html/body/table/tbody/tr/td').text
-            if self.username in users_list:
-                self.logbook.append((34, self.username, "Temp123"))
-                print("Supatools user successfully created...")
-        except:
-            print("Supatools user not created!")
 
     def porta(self):
         self.driver.get(r"https://billing.isphone.com.au/index.html")
@@ -372,25 +279,7 @@ class PasswordResetter:
         self.driver.find_element_by_name("submit").click()
         self.driver.find_element_by_id("submitrequest").click()
 
-        self.driver.get(r"https://viaip.utilibill.com.au/viaip/NewUser.jsp")
-        username = self.driver.find_element_by_name("j_username")
-        password = self.driver.find_element_by_id("predigpass")
-        drop_down = Select(self.driver.find_element_by_id("group"))
-        drop_down.select_by_visible_text("ViaIP Administrator")
-        username.send_keys(self.username)
-        newPass = self.passwordGenerator()
-        password.send_keys(newPass)
-
-        self.driver.find_element_by_class_name("buttonLrg").click()
-
         self.driver.get(r"https://viaip.utilibill.com.au/viaip/UserList")
-        users_list = self.driver.find_element_by_id("utbListDiv").text
-        match = re.search(self.username, users_list)
-        if match:
-            self.logbook.append((5, self.username, newPass))
-            print("ViaIP Utilibill user successfully created...")
-        else:
-            print("ViaIP Utilibill user not created!")
 
     def cloud_ultilibill(self):
         self.driver.get(r"https://eziconnect.utilibill.com.au/eziconnect/Login")
@@ -402,25 +291,7 @@ class PasswordResetter:
         self.driver.find_element_by_name("submit").click()
         self.driver.find_element_by_id("submitrequest").click()
 
-        self.driver.get(r"https://eziconnect.utilibill.com.au/eziconnect/NewUser.jsp")
-        username = self.driver.find_element_by_name("j_username")
-        password = self.driver.find_element_by_id("predigpass")
-        drop_down = Select(self.driver.find_element_by_id("group"))
-        drop_down.select_by_visible_text("Eziconnect Administrator")
-        username.send_keys(self.username)
-        newPass = self.passwordGenerator()
-        password.send_keys(newPass)
-
-        self.driver.find_element_by_class_name("buttonLrg").click()
-
         self.driver.get(r"https://viaip.utilibill.com.au/viaip/UserList")
-        users_list = self.driver.find_element_by_id("utbListDiv").text
-        match = re.search(self.username, users_list)
-        if match:
-            self.logbook.append((6, self.username, newPass))
-            print("Cloudnyne Utilibill user successfully created...")
-        else:
-            print("Cloudnyne Utilibill user not created!")
 
     def pickPortal(self):
         print("=====================================================")
@@ -493,10 +364,10 @@ def main():
         return
 
     elif answer == "Y" or answer == 'y':
-        ac = PasswordResetter(name)
-        ac.pickPortal()
-        print("New Password: " + ac.newPassword)
-        ac.teardown()
+        pr = PasswordResetter(name)
+        pr.pickPortal()
+        print("New Password: " + pr.newPassword)
+        pr.teardown()
         print("Complete!")
 
 

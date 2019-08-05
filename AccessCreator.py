@@ -286,10 +286,14 @@ class AccessCreator:
         password.send_keys(newPass)
         confirm_password.send_keys(newPass)
         email.send_keys(self.buro_email)
+
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblGroups_0").click()
 
-        print("Please choose appropriate roles for this user.")
-        input("Press enter when done and the script will proceed.")
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_13").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_16").click()
+
+        # print("Please choose appropriate roles for this user.")
+        # input("Press enter when done and the script will proceed.")
 
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_UpdateButtons_SaveButton").click()
         self.driver.switch_to.alert.accept()
@@ -337,8 +341,19 @@ class AccessCreator:
         email.send_keys(self.buro_email)
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblGroups_0").click()
 
-        print("Please choose appropriate roles for this user.")
-        input("Press enter when done and the script will proceed.")
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_2").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_5").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_6").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_7").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_8").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_11").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_12").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_16").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_17").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_18").click()
+
+        # print("Please choose appropriate roles for this user.")
+        # input("Press enter when done and the script will proceed.")
 
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_UpdateButtons_SaveButton").click()
         self.driver.switch_to.alert.accept()
@@ -381,16 +396,17 @@ class AccessCreator:
         email.send_keys(self.buro_email)
         dob.send_keys("2019-01-01 00:00")
         phone.send_keys("1")
+        self.driver.find_element_by_id("User16856actorManager").click()
 
         self.driver.find_element_by_xpath('//button[text()="Submit"]').click()
 
         # Check if user exists after creation
         users_list = self.driver.find_element_by_id("EndUserActor2671UsersListingTable").text
-        if sonar_username in users_list:
+        if self.buro_email in users_list:
             self.logbook.append((29, sonar_username, newPass))
             print("Sonar user successfully created...")
         else:
-            self.logbook.append((29, sonar_username, newPass)) #FIX THIS IF HAVE TIME!!!
+            self.logbook.append((29, sonar_username, newPass))
             print("Sonar user not created!")
 
     def supatools(self):
@@ -506,7 +522,7 @@ class AccessCreator:
         username = self.driver.find_element_by_id("pb_auth_user")
         password = self.driver.find_element_by_id("pb_auth_password")
         username.send_keys("Bryan.Yeung")
-        password.send_keys("7NdZrXu2L6gkXcK")
+        password.send_keys("LEnAXfCqN4B3ViQ")
         password.send_keys(Keys.ENTER)
 
         self.driver.get(r"https://billing.isphone.com.au/users.html")
@@ -698,6 +714,27 @@ class AccessCreator:
         else:
             print("Cloudnyne Utilibill user not created!")
 
+    def selcomm(self):
+        self.driver.get("https://support.selcomm.com:8443/secure/Dashboard.jspa")
+        username = self.driver.find_element_by_id("login-form-username")
+        password = self.driver.find_element_by_id("login-form-password")
+        username.send_keys("bwca-buroserv-5684")
+        password.send_keys("HLbyTk7")
+        self.driver.find_element_by_id("login").click()
+        self.driver.find_element_by_id("create_link").click()
+
+        drop_down = Select(self.driver.find_element_by_id("customfield_11502"))
+        drop_down.select_by_visible_text("Bryan Yeung")
+        summary = self.driver.find_element_by_id("summary")
+        description = self.driver.find_element_by_id("description")
+        summary.send_keys("New access required")
+        description.send_keys("Hi Team,\n\nCould you please create an access to BU & BW for:\n" +
+                              self.fullname + " (" + self.buro_email + ")\n" + "Please mirror the access levels of: "
+                              + "\n\nThanks!")
+        print("Please name a person's access levels to mirror, press Enter when done.")
+        input("")
+        self.driver.find_element_by_id("create-issue-submit").click()
+
     def export(self):
         src = path.realpath("New Employee Access Template.xlsx")
         new_wb = self.fullname + " Accesses " + str(date.today()) + ".xlsx"
@@ -717,6 +754,7 @@ class AccessCreator:
         ws['D20'] = '1qazXSW@'
         ws['C21'] = self.planettel_email
         wb.save(new_wb)
+        shutil.copy(new_wb, r"C:\Users\Bryan\OneDrive - Buroserv Australia Pty Ltd\Documents\New Employee Accesses")
 
     def createAll(self):
         try:
@@ -731,6 +769,7 @@ class AccessCreator:
             self.cloud_ultilibill()
             self.clarus_genex()
             self.v4_genex()
+            self.selcomm()
             self.octane()
             self.sonar()
             self.iboss()
@@ -763,6 +802,7 @@ def main():
     elif answer == "Y" or answer == 'y':
         print("Proceeding to create user accounts...")
         ac = AccessCreator(name, title)
+        ac.selcomm()
         ac.createAll()
         ac.teardown()
         print("Complete!")

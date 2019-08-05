@@ -23,7 +23,7 @@ class LOLOCreator:
         self.driver = webdriver.Firefox(firefox_profile=profile,
                                         executable_path=r"Drivers/geckodriver.exe")
         self.driver.maximize_window()
-        self.driver.implicitly_wait(30)
+        self.driver.implicitly_wait(60)
 
         # Create new folder for uesr
         path = r"C:/Users/Bryan/OneDrive - Buroserv Australia Pty Ltd/Telstra LOLO/LOLO Secondary Certificates/" + self.fullname
@@ -35,6 +35,7 @@ class LOLOCreator:
 
     def create(self):
         lolo_list = ['BHR', 'VIAIP', 'BVV', 'BWA', 'BAA', 'BFS']
+
         for lolo in lolo_list:
             lolo_name = lolo + self.lastName.upper()
             self.driver.get("https://www.telstrawholesale.com.au/")
@@ -161,7 +162,7 @@ class LOLOCreator:
 
 
 def main():
-    lolo = LOLOCreator("Janine Salonga", "0284888531")
+    lolo = LOLOCreator("Jerome Manuba", "0284888549")
     lolo.create()
     print("Completed!")
     lolo.teardown()

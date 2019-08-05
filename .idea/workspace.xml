@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="276e194c-8141-4e0a-a898-8f4824b171a1" name="Default Changelist" comment="initial files">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="276e194c-8141-4e0a-a898-8f4824b171a1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessCreator.py" beforeDir="false" afterPath="$PROJECT_DIR$/AccessCreator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LOLOCreator.py" beforeDir="false" afterPath="$PROJECT_DIR$/LOLOCreator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PasswordResetter.py" beforeDir="false" afterPath="$PROJECT_DIR$/PasswordResetter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AccessCreator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4122">
-              <caret line="728" column="33" selection-start-line="728" selection-start-column="33" selection-end-line="728" selection-end-column="33" />
+            <state relative-caret-position="12376">
+              <caret line="731" column="75" selection-start-line="731" selection-start-column="75" selection-end-line="731" selection-end-column="75" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -25,10 +30,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PasswordResetter.py">
+        <entry file="file://$PROJECT_DIR$/LOLOCreator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3893">
-              <caret line="241" column="31" selection-start-line="241" selection-start-column="31" selection-end-line="241" selection-end-column="31" />
+            <state relative-caret-position="1870">
+              <caret line="110" column="25" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -37,10 +42,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/LOLOCreator.py">
+        <entry file="file://$PROJECT_DIR$/PasswordResetter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="90" column="25" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="25" />
+            <state relative-caret-position="2524">
+              <caret line="367" column="23" lean-forward="true" selection-start-line="367" selection-start-column="23" selection-end-line="367" selection-end-column="23" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -104,19 +109,19 @@
       <list>
         <option value="$PROJECT_DIR$/AutoCreateAccess.py" />
         <option value="$PROJECT_DIR$/Firefox Profile/ln545vx6.default/xulstore.json" />
-        <option value="$PROJECT_DIR$/LOLOCreator.py" />
         <option value="$PROJECT_DIR$/AccessRemover.py" />
         <option value="$PROJECT_DIR$/PasswrodResetter" />
-        <option value="$PROJECT_DIR$/PasswordResetter.py" />
+        <option value="$PROJECT_DIR$/LOLOCreator.py" />
         <option value="$PROJECT_DIR$/AccessCreator.py" />
+        <option value="$PROJECT_DIR$/PasswordResetter.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2192" />
-    <option name="y" value="-27" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="x" value="1849" />
+    <option name="y" value="-8" />
+    <option name="width" value="1378" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -175,17 +180,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.LOLOCreator">
+  <component name="RunManager" selected="Python.AccessCreator">
     <configuration name="AccessCreator" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="AutoAccesses" />
+      <module name="AutoCreateAccesses" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\Bryan\PycharmProjects\AutoAccesses\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AccessCreator.py" />
@@ -198,15 +203,15 @@
       <method v="2" />
     </configuration>
     <configuration name="AccessRemover" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="AutoAccesses" />
+      <module name="AutoCreateAccesses" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\Bryan\PycharmProjects\AutoAccesses\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AccessRemover.py" />
@@ -218,37 +223,16 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="AutoCreateAccess" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="AutoAccesses" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Bryan\PycharmProjects\AutoCreateAccesses\AccessCreator.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="LOLOCreator" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="AutoAccesses" />
+      <module name="AutoCreateAccesses" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\Bryan\PycharmProjects\AutoAccesses\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LOLOCreator.py" />
@@ -261,15 +245,15 @@
       <method v="2" />
     </configuration>
     <configuration name="PasswordResetter" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="AutoAccesses" />
+      <module name="AutoCreateAccesses" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\Bryan\PycharmProjects\AutoAccesses\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PasswordResetter.py" />
@@ -345,13 +329,18 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.AccessCreator" />
+      <item itemvalue="Python.AccessRemover" />
+      <item itemvalue="Python.LOLOCreator" />
+      <item itemvalue="Python.PasswordResetter" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.LOLOCreator" />
         <item itemvalue="Python.AccessCreator" />
+        <item itemvalue="Python.LOLOCreator" />
         <item itemvalue="Python.PasswordResetter" />
         <item itemvalue="Python.AccessRemover" />
-        <item itemvalue="Python.AutoCreateAccess" />
       </list>
     </recent_temporary>
   </component>
@@ -376,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564716773240</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="test commit">
+      <created>1564720724104</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1564720724104</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -390,9 +386,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4168013" visible="true" weight="0.12961012" />
-      <window_info id="Structure" order="1" sideWeight="0.5831987" side_tool="true" visible="true" weight="0.12961012" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.41386783" visible="true" weight="0.12961012" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.58613217" side_tool="true" visible="true" weight="0.12961012" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
@@ -402,8 +399,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49947312" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49841937" visible="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5015806" side_tool="true" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49789253" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5021075" side_tool="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -431,70 +428,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial files" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial files" />
+    <MESSAGE value="test commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="test commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PasswordResetter.py</url>
-          <line>472</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PasswordResetter.py</url>
-          <line>474</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PasswordResetter.py</url>
-          <line>476</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PasswordResetter.py</url>
-          <line>484</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PasswordResetter.py</url>
-          <line>486</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PasswordResetter.py</url>
-          <line>488</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PasswordResetter.py</url>
-          <line>496</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PasswordResetter.py</url>
-          <line>498</line>
+          <url>file://$PROJECT_DIR$/AccessCreator.py</url>
+          <line>735</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PasswordResetter.py</url>
-          <line>500</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PasswordResetter.py</url>
-          <line>502</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PasswordResetter.py</url>
-          <line>504</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/LOLOCreator.py</url>
-          <line>165</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -514,39 +457,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Autoit Scripts/SelectBFSCert.exe">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Autoit Scripts/SelectVIAIPCert.exe">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Drivers/geckodriver.exe">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Drivers/chromedriver.exe">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/common/service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="90" selection-start-line="90" selection-end-line="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Firefox Profile/ln545vx6.default/weave/failed/tabs.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Firefox Profile/ln545vx6.default/xulstore.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="424" selection-start-column="424" selection-end-column="424" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Autoit Scripts/SelectBFSCert.exe" />
+    <entry file="file://$PROJECT_DIR$/Autoit Scripts/SelectVIAIPCert.exe" />
+    <entry file="file://$PROJECT_DIR$/Drivers/geckodriver.exe" />
+    <entry file="file://$PROJECT_DIR$/Drivers/chromedriver.exe" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/common/service.py" />
+    <entry file="file://$PROJECT_DIR$/Firefox Profile/ln545vx6.default/weave/failed/tabs.json" />
+    <entry file="file://$PROJECT_DIR$/Firefox Profile/ln545vx6.default/xulstore.json" />
     <entry file="file://$PROJECT_DIR$/Firefox Profile/jocnol8i.LOLO/weave/failed/tabs.json" />
-    <entry file="file://$PROJECT_DIR$/Autoit Scripts/Accept.exe">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Autoit Scripts/Accept.exe" />
     <entry file="file://$USER_HOME$/OneDrive - Buroserv Australia Pty Ltd/Documents/workspace/Auto Access Creator/NewTab.au3">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -554,18 +473,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/geckodriver.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7242" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/remote/webdriver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16337">
-          <caret line="977" selection-start-line="977" selection-end-line="977" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/geckodriver.log" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/remote/webdriver.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/re.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -573,44 +482,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Autoit Scripts/NewTab.exe">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Autoit Scripts/ClickFirstCert.exe">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Autoit Scripts/SaveCert.exe">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/remote/errorhandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="241" selection-start-line="241" selection-end-line="241" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Autoit Scripts/NewTab.exe" />
+    <entry file="file://$PROJECT_DIR$/Autoit Scripts/ClickFirstCert.exe" />
+    <entry file="file://$PROJECT_DIR$/Autoit Scripts/SaveCert.exe" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/remote/errorhandler.py" />
     <entry file="file://$PROJECT_DIR$/AccessRemover.py" />
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/support/select.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="139" selection-start-line="139" selection-end-line="139" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/support/select.py" />
     <entry file="file://$PROJECT_DIR$/AccessCreator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4122">
-          <caret line="728" column="33" selection-start-line="728" selection-start-column="33" selection-end-line="728" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PasswordResetter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3893">
-          <caret line="241" column="31" selection-start-line="241" selection-start-column="31" selection-end-line="241" selection-end-column="31" />
+        <state relative-caret-position="12376">
+          <caret line="731" column="75" selection-start-line="731" selection-start-column="75" selection-end-line="731" selection-end-column="75" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -619,8 +500,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LOLOCreator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="90" column="25" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="25" />
+        <state relative-caret-position="1870">
+          <caret line="110" column="25" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PasswordResetter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2524">
+          <caret line="367" column="23" lean-forward="true" selection-start-line="367" selection-start-column="23" selection-end-line="367" selection-end-column="23" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
