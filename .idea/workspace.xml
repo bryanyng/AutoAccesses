@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="276e194c-8141-4e0a-a898-8f4824b171a1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccessCreator.py" beforeDir="false" afterPath="$PROJECT_DIR$/AccessCreator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drivers/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/chromedriver.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LOLOCreator.py" beforeDir="false" afterPath="$PROJECT_DIR$/LOLOCreator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PasswordResetter.py" beforeDir="false" afterPath="$PROJECT_DIR$/PasswordResetter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
@@ -15,46 +15,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AccessCreator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12376">
-              <caret line="731" column="75" selection-start-line="731" selection-start-column="75" selection-end-line="731" selection-end-column="75" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LOLOCreator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1870">
-              <caret line="110" column="25" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PasswordResetter.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2524">
-              <caret line="367" column="23" lean-forward="true" selection-start-line="367" selection-start-column="23" selection-end-line="367" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -62,92 +22,16 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>assert</find>
-      <find>print</find>
-      <find>str</find>
-      <find>s</find>
-      <find>st</find>
-      <find>TODO</find>
-      <find>firstName</find>
-      <find>ac</find>
-      <find>&quot; &quot;</find>
-      <find>username</find>
-      <find>username.send</find>
-      <find>reopen</find>
-      <find>user account</find>
-      <find>Press enter</find>
-      <find>\</find>
-      <find>path</find>
-      <find>real</find>
-      <find>C:</find>
-      <find>text</find>
-      <find>text()</find>
-      <find>re.</find>
-      <find>re</find>
-      <find>input</find>
-      <find>optus</find>
-      <find>porta</find>
-      <find>please</find>
-      <find>self.export()</find>
-      <find>logbook</find>
-      <find>dropdown</find>
-      <find>select</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>self</replace>
-      <replace>user</replace>
-      <replace>/</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/AutoCreateAccess.py" />
-        <option value="$PROJECT_DIR$/Firefox Profile/ln545vx6.default/xulstore.json" />
-        <option value="$PROJECT_DIR$/AccessRemover.py" />
-        <option value="$PROJECT_DIR$/PasswrodResetter" />
-        <option value="$PROJECT_DIR$/LOLOCreator.py" />
-        <option value="$PROJECT_DIR$/AccessCreator.py" />
-        <option value="$PROJECT_DIR$/PasswordResetter.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1849" />
-    <option name="y" value="-8" />
-    <option name="width" value="1378" />
-    <option name="height" value="735" />
-  </component>
+  <component name="ProjectId" id="1P1xDxmISwmpl5ciR6gtwrf9dku" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="AutoAccesses" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Bryan\PycharmProjects\AutoAccesses" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.toDoOptions" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -180,7 +64,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.AccessCreator">
+  <component name="RunManager" selected="Python.LOLOCreator">
     <configuration name="AccessCreator" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AutoCreateAccesses" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -337,9 +221,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.AccessCreator" />
         <item itemvalue="Python.LOLOCreator" />
         <item itemvalue="Python.PasswordResetter" />
+        <item itemvalue="Python.AccessCreator" />
         <item itemvalue="Python.AccessRemover" />
       </list>
     </recent_temporary>
@@ -372,151 +256,44 @@
       <option name="project" value="LOCAL" />
       <updated>1564720724104</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added Selcomm ticket creation and fixed some bugs">
+      <created>1564986172146</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1564986172146</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.41386783" visible="true" weight="0.12961012" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.58613217" side_tool="true" visible="true" weight="0.12961012" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.22318527" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49947312" weight="0.2990249" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49947312" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49789253" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5021075" side_tool="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32936078" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4225352" visible="true" weight="0.13540569" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.57746476" side_tool="true" visible="true" weight="0.13540569" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.22318527" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49947312" weight="0.2990249" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50052685" side_tool="true" weight="0.2990249" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32936078" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial files" />
     <MESSAGE value="test commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="test commit" />
+    <MESSAGE value="Added Selcomm ticket creation and fixed some bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Selcomm ticket creation and fixed some bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/AccessCreator.py</url>
-          <line>735</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/PasswordResetter.py</url>
+          <line>224</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/builtins.pyi">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/1272201196/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13447">
-          <caret line="791" column="8" selection-start-line="791" selection-start-column="8" selection-end-line="791" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Autoit Scripts/SelectBFSCert.exe" />
-    <entry file="file://$PROJECT_DIR$/Autoit Scripts/SelectVIAIPCert.exe" />
-    <entry file="file://$PROJECT_DIR$/Drivers/geckodriver.exe" />
-    <entry file="file://$PROJECT_DIR$/Drivers/chromedriver.exe" />
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/common/service.py" />
-    <entry file="file://$PROJECT_DIR$/Firefox Profile/ln545vx6.default/weave/failed/tabs.json" />
-    <entry file="file://$PROJECT_DIR$/Firefox Profile/ln545vx6.default/xulstore.json" />
-    <entry file="file://$PROJECT_DIR$/Firefox Profile/jocnol8i.LOLO/weave/failed/tabs.json" />
-    <entry file="file://$PROJECT_DIR$/Autoit Scripts/Accept.exe" />
-    <entry file="file://$USER_HOME$/OneDrive - Buroserv Australia Pty Ltd/Documents/workspace/Auto Access Creator/NewTab.au3">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="10" lean-forward="true" selection-start-column="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geckodriver.log" />
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/remote/webdriver.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/re.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="191" selection-start-line="191" selection-end-line="191" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Autoit Scripts/NewTab.exe" />
-    <entry file="file://$PROJECT_DIR$/Autoit Scripts/ClickFirstCert.exe" />
-    <entry file="file://$PROJECT_DIR$/Autoit Scripts/SaveCert.exe" />
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/remote/errorhandler.py" />
-    <entry file="file://$PROJECT_DIR$/AccessRemover.py" />
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/support/select.py" />
-    <entry file="file://$PROJECT_DIR$/AccessCreator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12376">
-          <caret line="731" column="75" selection-start-line="731" selection-start-column="75" selection-end-line="731" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LOLOCreator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="110" column="25" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PasswordResetter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2524">
-          <caret line="367" column="23" lean-forward="true" selection-start-line="367" selection-start-column="23" selection-end-line="367" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>

@@ -34,7 +34,8 @@ class LOLOCreator:
             print("Directory ", path, " already exists.")
 
     def create(self):
-        lolo_list = ['BHR', 'VIAIP', 'BVV', 'BWA', 'BAA', 'BFS']
+        # lolo_list = ['BHR', 'VIAIP', 'BVV', 'BWA', 'BAA', 'BFS']
+        lolo_list = ['BHR']
 
         for lolo in lolo_list:
             lolo_name = lolo + self.lastName.upper()
@@ -143,7 +144,7 @@ class LOLOCreator:
             secretQ.send_keys("What is the name of the company you work in?")
             secretA.send_keys("Buroserv")
             self.driver.find_element_by_xpath('/html/body/table[4]/tbody/tr/td[2]/table[2]/tbody/tr/td[2]/table/tbody/tr[7]/td[2]/form/table[2]/tbody/tr[2]/td/input').click()
-            if lolo_name is not 'BFS':
+            if lolo_name is not 'BFS' or len(lolo_list) is not 1:
                 self.reopen()
 
     def reopen(self):
@@ -162,7 +163,7 @@ class LOLOCreator:
 
 
 def main():
-    lolo = LOLOCreator("Jerome Manuba", "0284888549")
+    lolo = LOLOCreator("Morgan Hughes", "0290909090")
     lolo.create()
     print("Completed!")
     lolo.teardown()

@@ -102,7 +102,8 @@ class AccessCreator:
         iboss_username = self.firstName + self.lastName
         username.send_keys(iboss_username)
         newPass = self.passwordGenerator()
-        newPass = re.sub(r"[$%^&*\-+?]", "@", newPass)
+        special_char = secrets.choice("!#%@<>")
+        newPass = re.sub(r"[$%^&*\-+?]", special_char, newPass)
         password.send_keys(newPass)
         email.send_keys(self.buro_email)
         name.send_keys(self.fullname)
@@ -307,7 +308,7 @@ class AccessCreator:
         else:
             print("Clarus Genex user not created!")
 
-    def v4_genex(self):
+    def buro_genex(self):
         self.driver.get(r"https://genex.billing.com.au/Module/Main/login.aspx")
         database = self.driver.find_element_by_id("ctl00_CPH_txtDatabase")
         username = self.driver.find_element_by_id("ctl00_CPH_txtUsername")
@@ -363,9 +364,9 @@ class AccessCreator:
         users_list = self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_rblUsers").text
         if self.fullname in users_list:
             self.logbook.append((9, genex_username, newPass))
-            print("V4 Genex user successfully created...")
+            print("Buro Genex user successfully created...")
         else:
-            print("V4 Genex user not created!")
+            print("Buro Genex user not created!")
 
     def sonar(self):
         self.driver.get(r"https://mvp02.symbionetworks.com/sonar_admin/")
@@ -768,7 +769,7 @@ class AccessCreator:
             self.viaip_utilibill()
             self.cloud_ultilibill()
             self.clarus_genex()
-            self.v4_genex()
+            self.buro_genex()
             self.selcomm()
             self.octane()
             self.sonar()
@@ -802,7 +803,6 @@ def main():
     elif answer == "Y" or answer == 'y':
         print("Proceeding to create user accounts...")
         ac = AccessCreator(name, title)
-        ac.selcomm()
         ac.createAll()
         ac.teardown()
         print("Complete!")
