@@ -4,10 +4,7 @@
     <list default="true" id="276e194c-8141-4e0a-a898-8f4824b171a1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccessCreator.py" beforeDir="false" afterPath="$PROJECT_DIR$/AccessCreator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Drivers/chromedriver.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LOLOCreator.py" beforeDir="false" afterPath="$PROJECT_DIR$/LOLOCreator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PasswordResetter.py" beforeDir="false" afterPath="$PROJECT_DIR$/PasswordResetter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.LOLOCreator">
+  <component name="RunManager" selected="Python.AccessCreator">
     <configuration name="AccessCreator" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AutoCreateAccesses" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -221,9 +218,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.LOLOCreator" />
-        <item itemvalue="Python.PasswordResetter" />
         <item itemvalue="Python.AccessCreator" />
+        <item itemvalue="Python.PasswordResetter" />
+        <item itemvalue="Python.LOLOCreator" />
         <item itemvalue="Python.AccessRemover" />
       </list>
     </recent_temporary>
@@ -263,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564986172146</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="finished password reset for all except porta + supatools&#10;fixed lolo permission">
+      <created>1565672552739</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1565672552739</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -283,7 +287,8 @@
     <MESSAGE value="initial files" />
     <MESSAGE value="test commit" />
     <MESSAGE value="Added Selcomm ticket creation and fixed some bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Selcomm ticket creation and fixed some bugs" />
+    <MESSAGE value="finished password reset for all except porta + supatools&#10;fixed lolo permission" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished password reset for all except porta + supatools&#10;fixed lolo permission" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

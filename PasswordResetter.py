@@ -109,7 +109,7 @@ class PasswordResetter:
         password.send_keys(newPass)
         confirm_password.send_keys(newPass)
         self.driver.find_element_by_id("btn-reset").click()
-        self.driver.find_element_by_id("modal-btn-ok").click()
+        # MISSING MODAL CONFIRM CLICK
         self.newPassword = newPass
 
     def clarus_genex(self):
@@ -121,7 +121,7 @@ class PasswordResetter:
         username.clear()
         database.send_keys("Clarus")
         username.send_keys("Bryan.Yeung")
-        password.send_keys("1qazXSW@")
+        password.send_keys("XGn$SY2R")
         self.driver.find_element_by_id("ctl00_CPH_btnLogin").click()
         self.driver.get(r"https://genex.billing.com.au/module/Roles/UserManager.aspx")
         find_username = self.driver.find_element_by_xpath('//label[contains(text(),\'' + self.fullname + '\')]').text
@@ -149,7 +149,7 @@ class PasswordResetter:
         username.clear()
         database.send_keys("Buroserv")
         username.send_keys("Bryan.Y")
-        password.send_keys("bynej2")
+        password.send_keys("ruLLy4%C")
         self.driver.find_element_by_id("ctl00_CPH_btnLogin").click()
         self.driver.get(r"https://genex.billing.com.au/module/Roles/UserManager.aspx")
         find_username = self.driver.find_element_by_xpath('//label[contains(text(),\'' + self.fullname + '\')]').text
@@ -269,7 +269,7 @@ class PasswordResetter:
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_id("predigpass")
         username.send_keys("bryan.yeung")
-        password.send_keys("hR4XyL}(")
+        password.send_keys("A5DN%sL!")
         self.driver.find_element_by_name("submit").click()
         self.driver.find_element_by_id("submitrequest").click()
 
@@ -288,7 +288,7 @@ class PasswordResetter:
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_id("predigpass")
         username.send_keys("bryan.yeung")
-        password.send_keys("\-9y2vUTSee9P]=(")
+        password.send_keys("3^*DPhmX")
         self.driver.find_element_by_name("submit").click()
         self.driver.find_element_by_id("submitrequest").click()
 

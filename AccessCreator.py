@@ -264,7 +264,7 @@ class AccessCreator:
         username.clear()
         database.send_keys("Clarus")
         username.send_keys("Bryan.Yeung")
-        password.send_keys("1qazXSW@")
+        password.send_keys("XGn$SY2R")
         self.driver.find_element_by_id("ctl00_CPH_btnLogin").click()
         self.driver.get(r"https://genex.billing.com.au/module/Roles/UserManager.aspx")
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_AddButton").click()
@@ -317,7 +317,7 @@ class AccessCreator:
         username.clear()
         database.send_keys("Buroserv")
         username.send_keys("Bryan.Y")
-        password.send_keys("bynej2")
+        password.send_keys("ruLLy4%C")
         self.driver.find_element_by_id("ctl00_CPH_btnLogin").click()
         self.driver.get(r"https://genex.billing.com.au/module/Roles/UserManager.aspx")
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_AddButton").click()
@@ -661,7 +661,7 @@ class AccessCreator:
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_id("predigpass")
         username.send_keys("bryan.yeung")
-        password.send_keys("hR4XyL}(")
+        password.send_keys("A5DN%sL!")
         self.driver.find_element_by_name("submit").click()
         self.driver.find_element_by_id("submitrequest").click()
 
@@ -691,7 +691,7 @@ class AccessCreator:
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_id("predigpass")
         username.send_keys("bryan.yeung")
-        password.send_keys("\-9y2vUTSee9P]=(")
+        password.send_keys("3^*DPhmX")
         self.driver.find_element_by_name("submit").click()
         self.driver.find_element_by_id("submitrequest").click()
 
@@ -759,13 +759,13 @@ class AccessCreator:
 
     def createAll(self):
         try:
-            self.ims()
+            # self.ims()
             self.viaip_optus()
             # self.buro_optus()
-            self.supatools()
+            # self.supatools()
             # self.alfresco()
-            self.buro_frontier()
-            self.cloud_frontier()
+            # self.buro_frontier()
+            # self.cloud_frontier()
             self.viaip_utilibill()
             self.cloud_ultilibill()
             self.clarus_genex()
