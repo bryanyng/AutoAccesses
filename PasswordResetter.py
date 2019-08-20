@@ -229,7 +229,7 @@ class PasswordResetter:
         username = self.driver.find_element_by_id("pb_auth_user")
         password = self.driver.find_element_by_id("pb_auth_password")
         username.send_keys("Bryan.Yeung")
-        password.send_keys("7NdZrXu2L6gkXcK")
+        password.send_keys("LEnAXfCqN4B3ViQ")
         password.send_keys(Keys.ENTER)
 
         self.driver.get(r"https://billing.isphone.com.au/users.html")

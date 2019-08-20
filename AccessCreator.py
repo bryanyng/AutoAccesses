@@ -397,8 +397,6 @@ class AccessCreator:
         email.send_keys(self.buro_email)
         dob.send_keys("2019-01-01 00:00")
         phone.send_keys("1")
-        self.driver.find_element_by_id("User16856actorManager").click()
-
         self.driver.find_element_by_xpath('//button[text()="Submit"]').click()
 
         # Check if user exists after creation
@@ -759,13 +757,13 @@ class AccessCreator:
 
     def createAll(self):
         try:
-            # self.ims()
+            self.ims()
             self.viaip_optus()
             # self.buro_optus()
-            # self.supatools()
+            self.supatools()
             # self.alfresco()
-            # self.buro_frontier()
-            # self.cloud_frontier()
+            self.buro_frontier()
+            self.cloud_frontier()
             self.viaip_utilibill()
             self.cloud_ultilibill()
             self.clarus_genex()

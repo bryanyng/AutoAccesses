@@ -61,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.AccessCreator">
+  <component name="RunManager" selected="Python.PasswordResetter">
     <configuration name="AccessCreator" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AutoCreateAccesses" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -218,8 +218,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.AccessCreator" />
         <item itemvalue="Python.PasswordResetter" />
+        <item itemvalue="Python.AccessCreator" />
         <item itemvalue="Python.LOLOCreator" />
         <item itemvalue="Python.AccessRemover" />
       </list>
@@ -267,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565672552739</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="updated passwords">
+      <created>1565841407903</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1565841407903</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -288,7 +295,8 @@
     <MESSAGE value="test commit" />
     <MESSAGE value="Added Selcomm ticket creation and fixed some bugs" />
     <MESSAGE value="finished password reset for all except porta + supatools&#10;fixed lolo permission" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished password reset for all except porta + supatools&#10;fixed lolo permission" />
+    <MESSAGE value="updated passwords" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated passwords" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
