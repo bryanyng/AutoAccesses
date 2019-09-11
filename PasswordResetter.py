@@ -222,14 +222,13 @@ class PasswordResetter:
         drop_down = Select(self.driver.find_element_by_id('column1'))
         drop_down.select_by_visible_text("User Id")
         self.driver.find_element_by_link_text("Edit").click()
-        print("A")
 
     def porta(self):
         self.driver.get(r"https://billing.isphone.com.au/index.html")
         username = self.driver.find_element_by_id("pb_auth_user")
         password = self.driver.find_element_by_id("pb_auth_password")
         username.send_keys("Bryan.Yeung")
-        password.send_keys("LEnAXfCqN4B3ViQ")
+        password.send_keys("fYqqejxkuQnz74P")
         password.send_keys(Keys.ENTER)
 
         self.driver.get(r"https://billing.isphone.com.au/users.html")

@@ -293,9 +293,6 @@ class AccessCreator:
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_13").click()
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_16").click()
 
-        # print("Please choose appropriate roles for this user.")
-        # input("Press enter when done and the script will proceed.")
-
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_UpdateButtons_SaveButton").click()
         self.driver.switch_to.alert.accept()
 
@@ -353,9 +350,6 @@ class AccessCreator:
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_17").click()
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_18").click()
 
-        # print("Please choose appropriate roles for this user.")
-        # input("Press enter when done and the script will proceed.")
-
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_UpdateButtons_SaveButton").click()
         self.driver.switch_to.alert.accept()
 
@@ -367,6 +361,63 @@ class AccessCreator:
             print("Buro Genex user successfully created...")
         else:
             print("Buro Genex user not created!")
+
+    def v4_genex(self):
+        self.driver.get(r"https://genex.billing.com.au/Module/Main/login.aspx")
+        database = self.driver.find_element_by_id("ctl00_CPH_txtDatabase")
+        username = self.driver.find_element_by_id("ctl00_CPH_txtUsername")
+        password = self.driver.find_element_by_id("ctl00_CPH_txtPassword")
+        database.clear()
+        username.clear()
+        database.send_keys("v4")
+        username.send_keys("Bryan.Y")
+        password.send_keys("trin67!")
+        self.driver.find_element_by_id("ctl00_CPH_btnLogin").click()
+        self.driver.get(r"https://genex.billing.com.au/module/Roles/UserManager.aspx")
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_AddButton").click()
+        username = self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_txtUserName")
+        firstName = self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_txtFirstName")
+        lastName = self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_txtLastName")
+        password = self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_txtPassword")
+        confirm_password = self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_txtConfirmPassword")
+        email = self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_txtEmailAddress")
+        if len(self.username) > 12:
+            genex_username = self.firstName + self.lastName[0]
+            if len(genex_username) > 12:
+                genex_username = input("Please enter a 12 character username for Genex.")
+        else:
+            genex_username = self.username
+        username.send_keys(genex_username)
+        firstName.send_keys(self.firstName)
+        lastName.send_keys(self.lastName)
+        newPass = self.passwordGenerator()
+        password.send_keys(newPass)
+        confirm_password.send_keys(newPass)
+        email.send_keys(self.buro_email)
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblGroups_0").click()
+
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_2").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_5").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_6").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_7").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_8").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_11").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_12").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_16").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_17").click()
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_cblRoles_18").click()
+
+        self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_UpdateButtons_SaveButton").click()
+        self.driver.switch_to.alert.accept()
+
+        # Check if user exists after creation
+        self.driver.get(r"https://genex.billing.com.au/module/Roles/UserManager.aspx")
+        users_list = self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_rblUsers").text
+        if self.fullname in users_list:
+            self.logbook.append((9, genex_username, newPass))
+            print("V4 Genex user successfully created...")
+        else:
+            print("V4 Genex user not created!")
 
     def sonar(self):
         self.driver.get(r"https://mvp02.symbionetworks.com/sonar_admin/")
@@ -521,7 +572,7 @@ class AccessCreator:
         username = self.driver.find_element_by_id("pb_auth_user")
         password = self.driver.find_element_by_id("pb_auth_password")
         username.send_keys("Bryan.Yeung")
-        password.send_keys("LEnAXfCqN4B3ViQ")
+        password.send_keys("fYqqejxkuQnz74P")
         password.send_keys(Keys.ENTER)
 
         self.driver.get(r"https://billing.isphone.com.au/users.html")
@@ -766,13 +817,15 @@ class AccessCreator:
             self.cloud_frontier()
             self.viaip_utilibill()
             self.cloud_ultilibill()
-            self.clarus_genex()
+            # self.clarus_genex()
             self.buro_genex()
-            self.selcomm()
+            self.v4_genex()
             self.octane()
             self.sonar()
             self.iboss()
             self.porta()
+            self.selcomm()
+
         except:
             print("An Error has occurred! Aborting and writing to excel sheet.")
             print("Please manually complete the rest of the accesses...")
