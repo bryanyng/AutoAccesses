@@ -11,6 +11,7 @@ from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
+from Pass import Pass
 
 
 class PasswordResetter:
@@ -23,6 +24,8 @@ class PasswordResetter:
         self.buro_email = self.username + "@buroserv.com.au"
         self.planettel_email = self.username + "@planettel.com.au"
         self.newPassword = ""
+        self.logins = Pass()
+
         # Set up webdriver
         self.driver = webdriver.Chrome(r"Drivers/chromedriver.exe")
         self.driver.maximize_window()
@@ -48,8 +51,8 @@ class PasswordResetter:
 
         username = self.driver.find_element_by_id("login-username")
         password = self.driver.find_element_by_id("login-password")
-        username.send_keys("bryan.yeung")
-        password.send_keys("+;q`bn3(U(m6Xe@3")
+        username.send_keys(self.logins.ims()[0])
+        password.send_keys(self.logins.ims()[1])
         self.driver.find_element_by_id("btn-login").click()
 
         time.sleep(2)
@@ -66,12 +69,12 @@ class PasswordResetter:
         self.driver.find_element_by_id("btn-add-user").click()
         self.newPassword = "Temp123"
 
-    def iboss(self):
+    def tele_iboss(self):
         self.driver.get(r"https://symbio-aspire.iboss.com.au/aspireV2/login.php")
         username = self.driver.find_element_by_name("Username")
         password = self.driver.find_element_by_name("Password")
-        username.send_keys("telemates.com.au")
-        password.send_keys("ChangeMeMore!2m")
+        username.send_keys(self.logins.tele_iboss()[0])
+        password.send_keys(self.logins.tele_iboss()[1])
         self.driver.find_element_by_name("Submit").click()
         self.driver.find_element_by_id("ToolsDrop").click()
         self.driver.find_element_by_link_text("Wholesaler User Logins").click()
@@ -96,8 +99,8 @@ class PasswordResetter:
         time.sleep(2)
         username = self.driver.find_element_by_id("j_username")
         password = self.driver.find_element_by_id("predigpass")
-        username.send_keys("bryan")
-        password.send_keys("Douchebag!2")
+        username.send_keys(self.logins.octane()[0])
+        password.send_keys(self.logins.octane()[1])
         password.send_keys(Keys.ENTER)
         self.driver.find_element_by_xpath('//span[text()="Login"]').click()
         self.driver.get(r"https://octane.telcoinabox.com/tiab/UserList")
@@ -120,8 +123,8 @@ class PasswordResetter:
         database.clear()
         username.clear()
         database.send_keys("Clarus")
-        username.send_keys("Bryan.Yeung")
-        password.send_keys("XGn$SY2R")
+        username.send_keys(self.logins.clarus_genex()[0])
+        password.send_keys(self.logins.clarus_genex()[1])
         self.driver.find_element_by_id("ctl00_CPH_btnLogin").click()
         self.driver.get(r"https://genex.billing.com.au/module/Roles/UserManager.aspx")
         find_username = self.driver.find_element_by_xpath('//label[contains(text(),\'' + self.fullname + '\')]').text
@@ -148,8 +151,8 @@ class PasswordResetter:
         database.clear()
         username.clear()
         database.send_keys("Buroserv")
-        username.send_keys("Bryan.Y")
-        password.send_keys("ruLLy4%C")
+        username.send_keys(self.logins.buro_genex()[0])
+        password.send_keys(self.logins.buro_genex()[1])
         self.driver.find_element_by_id("ctl00_CPH_btnLogin").click()
         self.driver.get(r"https://genex.billing.com.au/module/Roles/UserManager.aspx")
         find_username = self.driver.find_element_by_xpath('//label[contains(text(),\'' + self.fullname + '\')]').text
@@ -171,8 +174,8 @@ class PasswordResetter:
         self.driver.get(r"https://mvp02.symbionetworks.com/sonar_admin/")
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_name("j_password")
-        username.send_keys("Bryan_Yeung")
-        password.send_keys("Bry@nY123!")
+        username.send_keys(self.logins.sonar()[0])
+        password.send_keys(self.logins.sonar()[1])
         password.send_keys(Keys.ENTER)
 
         self.driver.find_element_by_class_name("rootVoices").click()
@@ -203,8 +206,8 @@ class PasswordResetter:
         self.driver.get(r"https://support.viptelecombilling.net.au/login.php")
         username = self.driver.find_element_by_name("user_id")
         password = self.driver.find_element_by_name("password")
-        username.send_keys("Bryan.Yeung")
-        password.send_keys("As77917791")
+        username.send_keys(self.logins.supatools()[0])
+        password.send_keys(self.logins.supatools()[1])
         password.send_keys(Keys.ENTER)
 
         time.sleep(2)  # wait for page to load
@@ -227,8 +230,8 @@ class PasswordResetter:
         self.driver.get(r"https://billing.isphone.com.au/index.html")
         username = self.driver.find_element_by_id("pb_auth_user")
         password = self.driver.find_element_by_id("pb_auth_password")
-        username.send_keys("Bryan.Yeung")
-        password.send_keys("fYqqejxkuQnz74P")
+        username.send_keys(self.logins.porta()[0])
+        password.send_keys(self.logins.porta()[1])
         password.send_keys(Keys.ENTER)
 
         self.driver.get(r"https://billing.isphone.com.au/users.html")
@@ -267,8 +270,8 @@ class PasswordResetter:
         self.driver.find_element_by_tag_name("a").click()
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_id("predigpass")
-        username.send_keys("bryan.yeung")
-        password.send_keys("A5DN%sL!")
+        username.send_keys(self.logins.viaip_utilibill()[0])
+        password.send_keyss(self.logins.viaip_utilibill()[1])
         self.driver.find_element_by_name("submit").click()
         self.driver.find_element_by_id("submitrequest").click()
 
@@ -286,8 +289,8 @@ class PasswordResetter:
         self.driver.find_element_by_tag_name("a").click()
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_id("predigpass")
-        username.send_keys("bryan.yeung")
-        password.send_keys("3^*DPhmX")
+        username.send_keys(self.logins.cloud_utilibill()[0])
+        password.send_keys(self.logins.cloud_utilibill()[1])
         self.driver.find_element_by_name("submit").click()
         self.driver.find_element_by_id("submitrequest").click()
 

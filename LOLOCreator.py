@@ -34,7 +34,8 @@ class LOLOCreator:
             print("Directory ", path, " already exists.")
 
     def create(self):
-        lolo_list = ['BHR', 'VIAIP', 'BVV', 'BWA', 'BAA', 'BFS']
+        # lolo_list = ['BHR', 'VIAIP', 'BVV', 'BWA', 'BAA', 'BFS']
+        lolo_list = ['BHR']
 
         for lolo in lolo_list:
             lolo_name = lolo + self.lastName.upper()
@@ -78,6 +79,7 @@ class LOLOCreator:
             if not lolo == 'BFS':
                 self.driver.find_element_by_xpath('//label[text()="LinxOnline Service Wholesale   Reporting User"]').click()
             self.driver.find_element_by_xpath('//label[text()="LinxOnline Service Wholesale User"]').click()
+            self.driver.find_element_by_xpath('//label[text()="My Network"]').click()
             self.driver.find_element_by_xpath('/html/body/table[4]/tbody/tr/td[2]/table[2]/tbody/tr/td[2]/table/tbody/tr[8]/td[1]/table/tbody/tr/td/form[1]/table[3]/tbody/tr/td/input[1]').click()
             alert = self.driver.switch_to.alert
             match = re.search('(E.+)\'s', alert.text)
@@ -162,7 +164,7 @@ class LOLOCreator:
 
 
 def main():
-    lolo = LOLOCreator("Jona Balitayo", "0294929254")
+    lolo = LOLOCreator("Cyrus Sagar", "0284888553")
     lolo.create()
     print("Completed!")
     lolo.teardown()

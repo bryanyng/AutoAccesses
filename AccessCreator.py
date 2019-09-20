@@ -3,14 +3,15 @@ import secrets
 import shutil
 import string
 import time
-import openpyxl
-
 from datetime import date
 from os import path
+
+import openpyxl
 from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.action_chains import ActionChains
+from Pass import Pass
 
 
 class AccessCreator:
@@ -24,6 +25,7 @@ class AccessCreator:
         self.planettel_email = self.username + "@planettel.com.au"
         self.title = title
         self.logbook = []  # tuples of the form (row, username, password)
+        self.logins = Pass()
 
         # Set up webdriver
         self.driver = webdriver.Chrome(r"Drivers/chromedriver.exe")
@@ -41,7 +43,9 @@ class AccessCreator:
         return password
 
     def passwordCheck(self, password):
-        if re.search(r"[!@#$%^&*\-+?]", password) and re.search(r"[A-Z]", password) and re.search(r"[a-z]", password) and re.search(r"[0-9]", password):
+        if re.search(r"[!@#$%^&*\-+?]", password) and re.search(r"[A-Z]", password) and re.search(r"[a-z]",
+                                                                                                  password) and re.search(
+            r"[0-9]", password):
             return True
         return False
 
@@ -50,8 +54,8 @@ class AccessCreator:
 
         username = self.driver.find_element_by_id("login-username")
         password = self.driver.find_element_by_id("login-password")
-        username.send_keys("bryan.yeung")
-        password.send_keys("+;q`bn3(U(m6Xe@3")
+        username.send_keys(self.logins.ims()[0])
+        password.send_keys(self.logins.ims()[1])
         self.driver.find_element_by_id("btn-login").click()
 
         time.sleep(2)
@@ -85,12 +89,12 @@ class AccessCreator:
         else:
             print("IMS user not created!")
 
-    def iboss(self):
+    def tele_iboss(self):
         self.driver.get(r"https://symbio-aspire.iboss.com.au/aspireV2/login.php")
         username = self.driver.find_element_by_name("Username")
         password = self.driver.find_element_by_name("Password")
-        username.send_keys("telemates.com.au")
-        password.send_keys("ChangeMeMore!2m")
+        username.send_keys(self.logins.tele_iboss()[0])
+        password.send_keys(self.logins.tele_iboss()[1])
         self.driver.find_element_by_name("Submit").click()
         self.driver.find_element_by_id("ToolsDrop").click()
         self.driver.find_element_by_link_text("Wholesaler User Logins").click()
@@ -122,8 +126,8 @@ class AccessCreator:
         self.driver.get("https://www2.optus.com.au/wholesalenet/")
         username = self.driver.find_element_by_id("USER")
         password = self.driver.find_element_by_id("PASSWORD")
-        username.send_keys("Phill.Harding.VIAIP")
-        password.send_keys("R9i5WQtN!")
+        username.send_keys(self.logins.viaip_optus()[0])
+        password.send_keys(self.logins.viaip_optus()[1])
         self.driver.find_element_by_name("LOGIN").click()
         self.driver.find_element_by_link_text("Administration").click()
         self.driver.find_element_by_xpath('//span[text()="User Management"]').click()
@@ -190,8 +194,8 @@ class AccessCreator:
         self.driver.get("https://www2.optus.com.au/wholesalenet/")
         username = self.driver.find_element_by_id("USER")
         password = self.driver.find_element_by_id("PASSWORD")
-        username.send_keys("John.Green")
-        password.send_keys("Wilbur123!")
+        username.send_keys(self.logins.buro_optus()[0])
+        password.send_keys(self.logins.buro_optus()[1])
         self.driver.find_element_by_name("LOGIN").click()
         self.driver.find_element_by_link_text("Administration").click()
         self.driver.find_element_by_xpath('//span[text()="User Management"]').click()
@@ -232,8 +236,8 @@ class AccessCreator:
         time.sleep(2)
         username = self.driver.find_element_by_id("j_username")
         password = self.driver.find_element_by_id("predigpass")
-        username.send_keys("bryan")
-        password.send_keys("Douchebag!2")
+        username.send_keys(self.logins.octane()[0])
+        password.send_keys(self.logins.octane()[1])
         password.send_keys(Keys.ENTER)
         self.driver.find_element_by_xpath('//span[text()="Login"]').click()
         self.driver.get(r"https://octane.telcoinabox.com/tiab/NewUser.jsp")
@@ -263,8 +267,8 @@ class AccessCreator:
         database.clear()
         username.clear()
         database.send_keys("Clarus")
-        username.send_keys("Bryan.Yeung")
-        password.send_keys("XGn$SY2R")
+        username.send_keys(self.logins.clarus_genex()[0])
+        password.send_keys(self.logins.clarus_genex()[1])
         self.driver.find_element_by_id("ctl00_CPH_btnLogin").click()
         self.driver.get(r"https://genex.billing.com.au/module/Roles/UserManager.aspx")
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_AddButton").click()
@@ -313,8 +317,8 @@ class AccessCreator:
         database.clear()
         username.clear()
         database.send_keys("Buroserv")
-        username.send_keys("Bryan.Y")
-        password.send_keys("ruLLy4%C")
+        username.send_keys(self.logins.buro_genex()[0])
+        password.send_keys(self.logins.buro_genex()[1])
         self.driver.find_element_by_id("ctl00_CPH_btnLogin").click()
         self.driver.get(r"https://genex.billing.com.au/module/Roles/UserManager.aspx")
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_AddButton").click()
@@ -370,8 +374,8 @@ class AccessCreator:
         database.clear()
         username.clear()
         database.send_keys("v4")
-        username.send_keys("Bryan.Y")
-        password.send_keys("trin67!")
+        username.send_keys(self.logins.v4_genex()[0])
+        password.send_keys(self.logins.v4_genex()[1])
         self.driver.find_element_by_id("ctl00_CPH_btnLogin").click()
         self.driver.get(r"https://genex.billing.com.au/module/Roles/UserManager.aspx")
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_AddButton").click()
@@ -414,7 +418,7 @@ class AccessCreator:
         self.driver.get(r"https://genex.billing.com.au/module/Roles/UserManager.aspx")
         users_list = self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_rblUsers").text
         if self.fullname in users_list:
-            self.logbook.append((9, genex_username, newPass))
+            self.logbook.append((8, genex_username, newPass))
             print("V4 Genex user successfully created...")
         else:
             print("V4 Genex user not created!")
@@ -423,8 +427,8 @@ class AccessCreator:
         self.driver.get(r"https://mvp02.symbionetworks.com/sonar_admin/")
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_name("j_password")
-        username.send_keys("Bryan_Yeung")
-        password.send_keys("Bry@nY123!")
+        username.send_keys(self.logins.sonar()[0])
+        password.send_keys(self.logins.sonar()[1])
         password.send_keys(Keys.ENTER)
 
         self.driver.find_element_by_class_name("rootVoices").click()
@@ -463,8 +467,8 @@ class AccessCreator:
         self.driver.get(r"https://support.viptelecombilling.net.au/login.php")
         username = self.driver.find_element_by_name("user_id")
         password = self.driver.find_element_by_name("password")
-        username.send_keys("Bryan.Yeung")
-        password.send_keys("As77917791")
+        username.send_keys(self.logins.supatools()[0])
+        password.send_keys(self.logins.supatools()[1])
         password.send_keys(Keys.ENTER)
 
         time.sleep(2)  # wait for page to load
@@ -524,55 +528,12 @@ class AccessCreator:
         except:
             print("Supatools user not created!")
 
-    def alfresco(self):
-        self.driver.get(r"http://docs.planettel.com.au:8080/share/page/")
-        time.sleep(1)
-        username = self.driver.find_element_by_name("username")
-        password = self.driver.find_element_by_name("password")
-        username.send_keys("Bryan.Yeung")
-        password.send_keys("As77917791")
-        self.driver.find_element_by_xpath(
-            '//*[@id="page_x002e_components_x002e_slingshot-login_x0023_default-submit-button"]').click()
-
-        self.driver.get(r"http://docs.planettel.com.au:8080/share/page/console/admin-console/users")
-        self.driver.find_element_by_class_name("newuser-button").click()
-        firstName = self.driver.find_element_by_id(
-            "page_x002e_ctool_x002e_admin-console_x0023_default-create-firstname")
-        lastName = self.driver.find_element_by_id("page_x002e_ctool_x002e_admin-console_x0023_default-create-lastname")
-        email = self.driver.find_element_by_id("page_x002e_ctool_x002e_admin-console_x0023_default-create-email")
-        username = self.driver.find_element_by_id("page_x002e_ctool_x002e_admin-console_x0023_default-create-username")
-        password = self.driver.find_element_by_id("page_x002e_ctool_x002e_admin-console_x0023_default-create-password")
-        confirm_password = self.driver.find_element_by_id(
-            "page_x002e_ctool_x002e_admin-console_x0023_default-create-verifypassword")
-        firstName.send_keys(self.firstName)
-        lastName.send_keys(self.lastName)
-        email.send_keys(self.buro_email)
-        username.send_keys(self.username)
-        newPass = self.passwordGenerator()
-        password.send_keys(newPass)
-        confirm_password.send_keys(newPass)
-
-        self.driver.find_element_by_xpath('//button[text()="Create User"]').click()
-
-        # Check if user exists after creation
-        self.driver.get(r"http://docs.planettel.com.au:8080/share/page/console/admin-console/users")
-        search = self.driver.find_element_by_id("page_x002e_ctool_x002e_admin-console_x0023_default-search-text")
-        search.send_keys(self.username)
-        search.send_keys(Keys.ENTER)
-        time.sleep(2)  # wait for page to load
-        users_list = self.driver.find_element_by_id("page_x002e_ctool_x002e_admin-console_x0023_default-datatable").text
-        if self.username in users_list:
-            self.logbook.append((18, self.username, newPass))
-            print("Alfresco user successfully created...")
-        else:
-            print("Alfresco user not created!")
-
     def porta(self):
         self.driver.get(r"https://billing.isphone.com.au/index.html")
         username = self.driver.find_element_by_id("pb_auth_user")
         password = self.driver.find_element_by_id("pb_auth_password")
-        username.send_keys("Bryan.Yeung")
-        password.send_keys("fYqqejxkuQnz74P")
+        username.send_keys(self.logins.porta()[0])
+        password.send_keys(self.logins.porta()[1])
         password.send_keys(Keys.ENTER)
 
         self.driver.get(r"https://billing.isphone.com.au/users.html")
@@ -610,8 +571,8 @@ class AccessCreator:
         self.driver.get(r"https://frontier.aapt.com.au/s/login")
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_name("j_password")
-        username.send_keys("bryan.yeung@buroserv.com.au")
-        password.send_keys("9714477e1591780")
+        username.send_keys(self.logins.buro_frontier()[0])
+        password.send_keys(self.logins.buro_frontier()[1])
         self.driver.find_element_by_id("submit").click()
 
         self.driver.get(r"https://frontier.aapt.com.au/s/manageusers/createUserSelectPerson")
@@ -660,8 +621,8 @@ class AccessCreator:
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_name("j_password")
         username.clear()
-        username.send_keys("bryan.yeung@planettel.com.au")
-        password.send_keys("9921226y1263347")
+        username.send_keys(self.logins.cloud_frontier()[0])
+        password.send_keys(self.logins.cloud_frontier()[1])
         self.driver.find_element_by_id("submit").click()
 
         self.driver.get(r"https://frontier.aapt.com.au/s/manageusers/createUserSelectPerson")
@@ -709,8 +670,8 @@ class AccessCreator:
         self.driver.find_element_by_tag_name("a").click()
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_id("predigpass")
-        username.send_keys("bryan.yeung")
-        password.send_keys("A5DN%sL!")
+        username.send_keys(self.logins.viaip_utilibill()[0])
+        password.send_keys(self.logins.viaip_utilibill()[1])
         self.driver.find_element_by_name("submit").click()
         self.driver.find_element_by_id("submitrequest").click()
 
@@ -739,8 +700,8 @@ class AccessCreator:
         self.driver.find_element_by_tag_name("a").click()
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_id("predigpass")
-        username.send_keys("bryan.yeung")
-        password.send_keys("3^*DPhmX")
+        username.send_keys(self.logins.cloud_utilibill()[0])
+        password.send_keys(self.logins.cloud_utilibill()[1])
         self.driver.find_element_by_name("submit").click()
         self.driver.find_element_by_id("submitrequest").click()
 
@@ -768,8 +729,8 @@ class AccessCreator:
         self.driver.get("https://support.selcomm.com:8443/secure/Dashboard.jspa")
         username = self.driver.find_element_by_id("login-form-username")
         password = self.driver.find_element_by_id("login-form-password")
-        username.send_keys("bwca-buroserv-5684")
-        password.send_keys("HLbyTk7")
+        username.send_keys(self.logins.selcomm()[0])
+        password.send_keys(self.logins.selcomm()[1])
         self.driver.find_element_by_id("login").click()
         self.driver.find_element_by_id("create_link").click()
 
@@ -812,7 +773,6 @@ class AccessCreator:
             self.viaip_optus()
             # self.buro_optus()
             self.supatools()
-            # self.alfresco()
             self.buro_frontier()
             self.cloud_frontier()
             self.viaip_utilibill()
