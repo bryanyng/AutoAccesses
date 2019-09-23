@@ -7,11 +7,11 @@ from datetime import date
 from os import path
 
 import openpyxl
+from Pass import Pass
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
-from Pass import Pass
 
 
 class PasswordResetter:
@@ -42,7 +42,9 @@ class PasswordResetter:
         return password
 
     def passwordCheck(self, password):
-        if re.search(r"[!@#$%^&*\-+?]", password) and re.search(r"[A-Z]", password) and re.search(r"[a-z]", password) and re.search(r"[0-9]", password):
+        if re.search(r"[!@#$%^&*\-+?]", password) and re.search(r"[A-Z]", password) and re.search(r"[a-z]",
+                                                                                                  password) and re.search(
+            r"[0-9]", password):
             return True
         return False
 
@@ -51,8 +53,8 @@ class PasswordResetter:
 
         username = self.driver.find_element_by_id("login-username")
         password = self.driver.find_element_by_id("login-password")
-        username.send_keys(self.logins.ims()[0])
-        password.send_keys(self.logins.ims()[1])
+        username.send_keys(self.logins.ims[0])
+        password.send_keys(self.logins.ims[1])
         self.driver.find_element_by_id("btn-login").click()
 
         time.sleep(2)
@@ -73,8 +75,8 @@ class PasswordResetter:
         self.driver.get(r"https://symbio-aspire.iboss.com.au/aspireV2/login.php")
         username = self.driver.find_element_by_name("Username")
         password = self.driver.find_element_by_name("Password")
-        username.send_keys(self.logins.tele_iboss()[0])
-        password.send_keys(self.logins.tele_iboss()[1])
+        username.send_keys(self.logins.tele_iboss[0])
+        password.send_keys(self.logins.tele_iboss[1])
         self.driver.find_element_by_name("Submit").click()
         self.driver.find_element_by_id("ToolsDrop").click()
         self.driver.find_element_by_link_text("Wholesaler User Logins").click()
@@ -99,20 +101,22 @@ class PasswordResetter:
         time.sleep(2)
         username = self.driver.find_element_by_id("j_username")
         password = self.driver.find_element_by_id("predigpass")
-        username.send_keys(self.logins.octane()[0])
-        password.send_keys(self.logins.octane()[1])
+        username.send_keys(self.logins.octane[0])
+        password.send_keys(self.logins.octane[1])
         password.send_keys(Keys.ENTER)
         self.driver.find_element_by_xpath('//span[text()="Login"]').click()
         self.driver.get(r"https://octane.telcoinabox.com/tiab/UserList")
 
-        self.driver.find_element_by_css_selector('button[onclick="doEdit(\'' + self.username + '\'); return false;"]').click()
+        self.driver.find_element_by_css_selector(
+            'button[onclick="doEdit(\'' + self.username + '\'); return false;"]').click()
         password = self.driver.find_element_by_id("predigpass")
         confirm_password = self.driver.find_element_by_id("retype-password")
         newPass = self.passwordGenerator()
         password.send_keys(newPass)
         confirm_password.send_keys(newPass)
         self.driver.find_element_by_id("btn-reset").click()
-        # MISSING MODAL CONFIRM CLICK
+        # FIX MODAL
+        self.driver.find_element_by_xpath('//*[@id="modal-btn-ok"]').click()
         self.newPassword = newPass
 
     def clarus_genex(self):
@@ -123,8 +127,8 @@ class PasswordResetter:
         database.clear()
         username.clear()
         database.send_keys("Clarus")
-        username.send_keys(self.logins.clarus_genex()[0])
-        password.send_keys(self.logins.clarus_genex()[1])
+        username.send_keys(self.logins.clarus_genex[0])
+        password.send_keys(self.logins.clarus_genex[1])
         self.driver.find_element_by_id("ctl00_CPH_btnLogin").click()
         self.driver.get(r"https://genex.billing.com.au/module/Roles/UserManager.aspx")
         find_username = self.driver.find_element_by_xpath('//label[contains(text(),\'' + self.fullname + '\')]').text
@@ -142,7 +146,6 @@ class PasswordResetter:
         self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_UpdateButtons_SaveButton").click()
         self.newPassword = newPass
 
-
     def buro_genex(self):
         self.driver.get(r"https://genex.billing.com.au/Module/Main/login.aspx")
         database = self.driver.find_element_by_id("ctl00_CPH_txtDatabase")
@@ -151,8 +154,8 @@ class PasswordResetter:
         database.clear()
         username.clear()
         database.send_keys("Buroserv")
-        username.send_keys(self.logins.buro_genex()[0])
-        password.send_keys(self.logins.buro_genex()[1])
+        username.send_keys(self.logins.buro_genex[0])
+        password.send_keys(self.logins.buro_genex[1])
         self.driver.find_element_by_id("ctl00_CPH_btnLogin").click()
         self.driver.get(r"https://genex.billing.com.au/module/Roles/UserManager.aspx")
         find_username = self.driver.find_element_by_xpath('//label[contains(text(),\'' + self.fullname + '\')]').text
@@ -174,14 +177,16 @@ class PasswordResetter:
         self.driver.get(r"https://mvp02.symbionetworks.com/sonar_admin/")
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_name("j_password")
-        username.send_keys(self.logins.sonar()[0])
-        password.send_keys(self.logins.sonar()[1])
+        username.send_keys(self.logins.sonar[0])
+        password.send_keys(self.logins.sonar[1])
         password.send_keys(Keys.ENTER)
 
         self.driver.find_element_by_class_name("rootVoices").click()
         self.driver.find_element_by_link_text("Users").click()
-        user_code = self.driver.find_element_by_xpath('//td[@title=\"' + self.buro_email + '\"]/preceding-sibling::td').text
-        self.driver.find_element_by_css_selector('button[onclick=\"Users(\'' + user_code + '\', \'com.symbio.sona.actor.User\', \'User\', \'User\');').click()
+        user_code = self.driver.find_element_by_xpath(
+            '//td[@title=\"' + self.buro_email + '\"]/preceding-sibling::td').text
+        self.driver.find_element_by_css_selector(
+            'button[onclick=\"Users(\'' + user_code + '\', \'com.symbio.sona.actor.User\', \'User\', \'User\');').click()
         actorManager = self.driver.find_element_by_id("User" + user_code + "actorManager").is_selected()
         time.sleep(5)
         if actorManager:
@@ -206,8 +211,8 @@ class PasswordResetter:
         self.driver.get(r"https://support.viptelecombilling.net.au/login.php")
         username = self.driver.find_element_by_name("user_id")
         password = self.driver.find_element_by_name("password")
-        username.send_keys(self.logins.supatools()[0])
-        password.send_keys(self.logins.supatools()[1])
+        username.send_keys(self.logins.supatools[0])
+        password.send_keys(self.logins.supatools[1])
         password.send_keys(Keys.ENTER)
 
         time.sleep(2)  # wait for page to load
@@ -230,8 +235,8 @@ class PasswordResetter:
         self.driver.get(r"https://billing.isphone.com.au/index.html")
         username = self.driver.find_element_by_id("pb_auth_user")
         password = self.driver.find_element_by_id("pb_auth_password")
-        username.send_keys(self.logins.porta()[0])
-        password.send_keys(self.logins.porta()[1])
+        username.send_keys(self.logins.porta[0])
+        password.send_keys(self.logins.porta[1])
         password.send_keys(Keys.ENTER)
 
         self.driver.get(r"https://billing.isphone.com.au/users.html")
@@ -270,8 +275,8 @@ class PasswordResetter:
         self.driver.find_element_by_tag_name("a").click()
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_id("predigpass")
-        username.send_keys(self.logins.viaip_utilibill()[0])
-        password.send_keyss(self.logins.viaip_utilibill()[1])
+        username.send_keys(self.logins.viaip_utilibill[0])
+        password.send_keys(self.logins.viaip_utilibill[1])
         self.driver.find_element_by_name("submit").click()
         self.driver.find_element_by_id("submitrequest").click()
 
@@ -289,8 +294,8 @@ class PasswordResetter:
         self.driver.find_element_by_tag_name("a").click()
         username = self.driver.find_element_by_name("j_username")
         password = self.driver.find_element_by_id("predigpass")
-        username.send_keys(self.logins.cloud_utilibill()[0])
-        password.send_keys(self.logins.cloud_utilibill()[1])
+        username.send_keys(self.logins.cloud_utilibill[0])
+        password.send_keys(self.logins.cloud_utilibill[1])
         self.driver.find_element_by_name("submit").click()
         self.driver.find_element_by_id("submitrequest").click()
 
@@ -302,6 +307,25 @@ class PasswordResetter:
         self.driver.find_element_by_css_selector('a[href="javascript:resetPassword()"]').click()
         self.driver.switch_to.alert.accept()
         self.newPassword = newPass
+
+    def selcomm(self):
+        self.driver.get("https://support.selcomm.com:8443/secure/Dashboard.jspa")
+        username = self.driver.find_element_by_id("login-form-username")
+        password = self.driver.find_element_by_id("login-form-password")
+        username.send_keys(self.logins.selcomm[0])
+        password.send_keys(self.logins.selcomm[1])
+        self.driver.find_element_by_id("login").click()
+        self.driver.find_element_by_id("create_link").click()
+
+        print("Whose password to reset?")
+        user = input("")
+        drop_down = Select(self.driver.find_element_by_id("customfield_11502"))
+        drop_down.select_by_visible_text("Bryan Yeung")
+        summary = self.driver.find_element_by_id("summary")
+        description = self.driver.find_element_by_id("description")
+        summary.send_keys("Reset Password for a User")
+        description.send_keys("Hi Team,\n\nCould you please reset the password for:\n" + user + "\n\nThanks!")
+        self.driver.find_element_by_id("create-issue-submit").click()
 
     def pickPortal(self):
         print("=====================================================")
@@ -315,6 +339,7 @@ class PasswordResetter:
         print("[6] Porta")
         print("[7] Sonar")
         print("[8] iBoss")
+        print("[9] Selcomm")
         pick = input("")
 
         if pick == "1":
@@ -351,6 +376,8 @@ class PasswordResetter:
             self.sonar()
         elif pick == "8":
             self.iboss()
+        elif pick == "9":
+            self.selcomm()
 
     def teardown(self):
         self.driver.quit()
