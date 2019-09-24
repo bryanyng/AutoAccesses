@@ -43,23 +43,19 @@ class PasswordResetter:
 
     def passwordCheck(self, password):
         if re.search(r"[!@#$%^&*\-+?]", password) and re.search(r"[A-Z]", password) and re.search(r"[a-z]",
-                                                                                                  password) and re.search(
-            r"[0-9]", password):
+                        password) and re.search(r"[0-9]", password):
             return True
         return False
 
     def ims(self):
         self.driver.get(r"http://ims.buroserv.com.au/login.php")
-
         username = self.driver.find_element_by_id("login-username")
         password = self.driver.find_element_by_id("login-password")
         username.send_keys(self.logins.ims[0])
         password.send_keys(self.logins.ims[1])
         self.driver.find_element_by_id("btn-login").click()
-
         time.sleep(2)
         self.driver.get(r"http://ims.buroserv.com.au/users.php")
-
         search = self.driver.find_element_by_xpath('//*[@id="users-list_filter"]/label/input')
         search.send_keys(self.username)
         self.driver.find_element_by_xpath('//*[@id="users-list"]/tbody/tr/td[6]/div/a[2]').click()
@@ -227,10 +223,21 @@ class PasswordResetter:
         username = self.driver.find_element_by_xpath('//*[@id="value_1"]')
         username.send_keys(self.fullname)
         self.driver.find_element_by_xpath('//*[@id="sf"]/table/tbody/tr/td[1]/table[5]/tbody/tr/td/input').click()
-        drop_down = Select(self.driver.find_element_by_id('column1'))
-        drop_down.select_by_visible_text("User Id")
-        self.driver.find_element_by_link_text("Edit").click()
+        time.sleep(2)
+        self.driver.find_element_by_link_text(self.firstName).click()
+        time.sleep(1)
+        self.driver.find_element_by_xpath('/html/body/table/tbody/tr/td/table[1]/tbody/tr/td/form/table/tbody/tr/td[1]/input[1]').click()
+        password = self.driver.find_element_by_id("f_password")
+        confirm_password = self.driver.find_element_by_id("confirm_password")
+        password.send_keys("Temp123")
+        confirm_password.send_keys("Temp123")
+        status = Select(self.driver.find_element_by_name("__status"))
+        status.select_by_visible_text("Reset")
+        self.driver.find_element_by_xpath('//*[@id="savebtn"]').click()
+        time.sleep(2)
+        self.newPassword = "Temp123"
 
+    # TODO
     def porta(self):
         self.driver.get(r"https://billing.isphone.com.au/index.html")
         username = self.driver.find_element_by_id("pb_auth_user")
@@ -240,35 +247,6 @@ class PasswordResetter:
         password.send_keys(Keys.ENTER)
 
         self.driver.get(r"https://billing.isphone.com.au/users.html")
-        self.driver.find_element_by_class_name("add").click()
-        time.sleep(3)  # wait for js to load
-        firstName = self.driver.find_element_by_name("firstname")
-        lastName = self.driver.find_element_by_id("lastname_field_id")
-        email = self.driver.find_element_by_id("email_field_id")
-        firstName.send_keys(self.firstName)
-        lastName.send_keys(self.lastName)
-        email.send_keys(self.buro_email)
-        self.driver.find_element_by_link_text("Web Self-Care").click()
-        username = self.driver.find_element_by_id("login_input_id")
-        password = self.driver.find_element_by_id("password_input_id")
-        username.clear()
-        username.send_keys(self.username)
-        newPass = self.passwordGenerator()
-        password.send_keys(newPass)
-        drop_down = Select(self.driver.find_element_by_id("ACLSelect"))
-        drop_down.select_by_visible_text("ISPhone - Account Manager")
-        self.driver.find_element_by_id("api-token-auth").click()
-
-        self.driver.find_element_by_class_name("save_close").click()
-
-        self.driver.get(r"https://billing.isphone.com.au/users.html")
-        print("Please verify if user is created (Y/N).")
-        answer = input("")
-        if answer == 'Y' or answer == 'y':
-            self.logbook.append((19, self.username, newPass))
-            print("Porta user successfully created...")
-        else:
-            print("Porta user not created!")
 
     def viaip_utilibill(self):
         self.driver.get(r"https://viaip.utilibill.com.au/viaip/Login")
