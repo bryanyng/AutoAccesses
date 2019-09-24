@@ -112,6 +112,8 @@ class PasswordResetter:
         confirm_password.send_keys(newPass)
         self.driver.find_element_by_id("btn-reset").click()
         # FIX MODAL
+        print("Please manually Click OK")
+        input("")
         self.driver.find_element_by_xpath('//*[@id="modal-btn-ok"]').click()
         self.newPassword = newPass
 

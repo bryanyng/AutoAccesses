@@ -109,6 +109,8 @@ class AccessRemover:
                 'button[onclick="doEdit(\'' + self.username + '\'); return false;"]').click()
             self.driver.find_element_by_xpath('//*[@id="btn-bar"]').click()
             # FIX MODAL
+            print("Please manually Click OK. Press Enter to Continue.")
+            input("")
             self.driver.find_element_by_xpath('//*[@id="modal-btn-ok"]').click()
         except:
             print("Octane User not removed...")
@@ -131,6 +133,9 @@ class AccessRemover:
             genex_username = match.group(1)
             self.driver.find_element_by_css_selector('input[value=\"' + genex_username + '\"]').click()
             self.driver.find_element_by_xpath('//*[@id="ctl00_CPH_UsersAndRoles_DisableButton"]').click()
+            time.sleep(2)
+            self.driver.switch_to.alert.accept()
+            time.sleep(2)
             self.driver.switch_to.alert.accept()
         except:
             print("Clarus Genex User not removed...")
@@ -153,6 +158,9 @@ class AccessRemover:
             genex_username = match.group(1)
             self.driver.find_element_by_css_selector('input[value=\"' + genex_username + '\"]').click()
             self.driver.find_element_by_xpath('//*[@id="ctl00_CPH_UsersAndRoles_DisableButton"]').click()
+            time.sleep(2)
+            self.driver.switch_to.alert.accept()
+            time.sleep(2)
             self.driver.switch_to.alert.accept()
         except:
             print("Buro Genex User not removed...")
@@ -175,6 +183,9 @@ class AccessRemover:
             genex_username = match.group(1)
             self.driver.find_element_by_css_selector('input[value=\"' + genex_username + '\"]').click()
             self.driver.find_element_by_xpath('//*[@id="ctl00_CPH_UsersAndRoles_DisableButton"]').click()
+            time.sleep(2)
+            self.driver.switch_to.alert.accept()
+            time.sleep(2)
             self.driver.switch_to.alert.accept()
         except:
             print("V4 Genex User not removed...")
@@ -226,7 +237,8 @@ class AccessRemover:
             self.driver.find_element_by_xpath('//*[@id="sf"]/table/tbody/tr/td[1]/table[5]/tbody/tr/td/input').click()
             time.sleep(2)
             self.driver.find_element_by_link_text(self.firstName).click()
-            time.sleep(1)
+            print("Please remove all Group associations. Press Enter to Continue.")
+            input("")
             self.driver.find_element_by_xpath(
                 '/html/body/table/tbody/tr/td/table[1]/tbody/tr/td/form/table/tbody/tr/td[1]/input[1]').click()
             status = Select(self.driver.find_element_by_name("__status"))
@@ -360,14 +372,14 @@ class AccessRemover:
         self.cloud_frontier()
         self.viaip_utilibill()
         self.cloud_ultilibill()
-        # self.clarus_genex()
+        self.clarus_genex()
         self.buro_genex()
         self.v4_genex()
         self.octane()
         self.sonar()
-        self.iboss()
-        self.porta()
-        self.selcomm()
+        self.tele_iboss()
+        # self.porta()
+        # self.selcomm()
 
     def teardown(self):
         self.driver.quit()
@@ -386,8 +398,7 @@ def main():
     elif answer == "Y" or answer == 'y':
         print("Proceeding to remove user accounts...")
         ar = AccessRemover(name)
-        ar.supatools()
-        # ar.removeAll()
+        ar.removeAll()
         ar.teardown()
         print("Complete!")
 
