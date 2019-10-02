@@ -43,9 +43,7 @@ class AccessCreator:
         return password
 
     def passwordCheck(self, password):
-        if re.search(r"[!@#$%^&*\-+?]", password) and re.search(r"[A-Z]", password) and re.search(r"[a-z]",
-                                                                                                  password) and re.search(
-            r"[0-9]", password):
+        if re.search(r"[!@#$%^&*\-+?]", password) and re.search(r"[A-Z]", password) and re.search(r"[a-z]",password) and re.search(r"[0-9]", password):
             return True
         return False
 
@@ -85,6 +83,8 @@ class AccessCreator:
         users_list = self.driver.find_element_by_id("users-list").text
         if self.username in users_list:
             self.logbook.append((17, self.username, "Temp123"))
+            print(self.username)
+            print("Temp123")
             print("IMS user successfully created...")
         else:
             print("IMS user not created!")
@@ -118,6 +118,8 @@ class AccessCreator:
         users_list = self.driver.find_element_by_id("WholesellerUserID").text
         if self.fullname in users_list:
             self.logbook.append((31, iboss_username, newPass))
+            print(iboss_username)
+            print(newPass)
             print("IBoss user successfully created...")
         else:
             print("IBoss user not created!")
@@ -254,6 +256,8 @@ class AccessCreator:
         users_list = self.driver.find_element_by_xpath('//*[@id="user-list"]/div[2]/table/tbody').text
         if self.username in users_list:
             self.logbook.append((7, self.username, newPass))
+            print(self.username)
+            print(newPass)
             print("Octane user successfully created...")
         else:
             print("Octane user not created!")
@@ -305,6 +309,8 @@ class AccessCreator:
         users_list = self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_rblUsers").text
         if self.fullname in users_list:
             self.logbook.append((8, genex_username, newPass))
+            print(genex_username)
+            print(newPass)
             print("Clarus Genex user successfully created...")
         else:
             print("Clarus Genex user not created!")
@@ -362,6 +368,8 @@ class AccessCreator:
         users_list = self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_rblUsers").text
         if self.fullname in users_list:
             self.logbook.append((9, genex_username, newPass))
+            print(genex_username)
+            print(newPass)
             print("Buro Genex user successfully created...")
         else:
             print("Buro Genex user not created!")
@@ -419,6 +427,8 @@ class AccessCreator:
         users_list = self.driver.find_element_by_id("ctl00_CPH_UsersAndRoles_rblUsers").text
         if self.fullname in users_list:
             self.logbook.append((8, genex_username, newPass))
+            print(genex_username)
+            print(newPass)
             print("V4 Genex user successfully created...")
         else:
             print("V4 Genex user not created!")
@@ -461,6 +471,8 @@ class AccessCreator:
             print("Sonar user successfully created...")
         else:
             self.logbook.append((29, sonar_username, newPass))
+            print(sonar_username)
+            print(newPass)
             print("Sonar user not created!")
 
     def supatools(self):
@@ -524,6 +536,8 @@ class AccessCreator:
             users_list = self.driver.find_element_by_xpath('/html/body/table/tbody/tr/td').text
             if self.username in users_list:
                 self.logbook.append((34, self.username, "Temp123"))
+                print(self.username)
+                print("Temp123")
                 print("Supatools user successfully created...")
         except:
             print("Supatools user not created!")
@@ -563,6 +577,8 @@ class AccessCreator:
         answer = input("")
         if answer == 'Y' or answer == 'y':
             self.logbook.append((19, self.username, newPass))
+            print(self.username)
+            print(newPass)
             print("Porta user successfully created...")
         else:
             print("Porta user not created!")
@@ -691,6 +707,8 @@ class AccessCreator:
         match = re.search(self.username, users_list)
         if match:
             self.logbook.append((5, self.username, newPass))
+            print(self.username)
+            print(newPass)
             print("ViaIP Utilibill user successfully created...")
         else:
             print("ViaIP Utilibill user not created!")
@@ -721,6 +739,8 @@ class AccessCreator:
         match = re.search(self.username, users_list)
         if match:
             self.logbook.append((6, self.username, newPass))
+            print(self.username)
+            print(newPass)
             print("Cloudnyne Utilibill user successfully created...")
         else:
             print("Cloudnyne Utilibill user not created!")

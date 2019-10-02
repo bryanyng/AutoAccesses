@@ -297,14 +297,27 @@ class PasswordResetter:
         self.driver.find_element_by_id("login").click()
         self.driver.find_element_by_id("create_link").click()
 
-        print("Whose password to reset?")
-        user = input("")
+        print("bu or bw?")
+        answer = input("")
+        if answer == "bu" or answer == "BU":
+            if len(self.lastName) > 5:
+                selcomm_id = "bu" + self.lastName[0:5].lower() + self.firstName[0].lower()
+            else:
+                selcomm_id = "bu" + self.lastName.lower() + self.firstName[0].lower()
+        elif answer == "bw" or answer == "BW":
+            if len(self.lastName) > 5:
+                selcomm_id = "bw" + self.lastName[0:5].lower() + self.firstName[0].lower()
+            else:
+                selcomm_id = "bw" + self.lastName.lower() + self.firstName[0].lower()
+        else:
+            print("Invalid answer. Please run the script again.")
+            return
         drop_down = Select(self.driver.find_element_by_id("customfield_11502"))
         drop_down.select_by_visible_text("Bryan Yeung")
         summary = self.driver.find_element_by_id("summary")
         description = self.driver.find_element_by_id("description")
         summary.send_keys("Reset Password for a User")
-        description.send_keys("Hi Team,\n\nCould you please reset the password for:\n" + user + "\n\nThanks!")
+        description.send_keys("Hi Team,\n\nCould you please reset the password for:\n" + selcomm_id + "\n\nThanks!")
         self.driver.find_element_by_id("create-issue-submit").click()
 
     def pickPortal(self):
@@ -358,6 +371,7 @@ class PasswordResetter:
             self.iboss()
         elif pick == "9":
             self.selcomm()
+        return pick
 
     def teardown(self):
         self.driver.quit()
@@ -375,9 +389,10 @@ def main():
 
     elif answer == "Y" or answer == 'y':
         pr = PasswordResetter(name)
-        pr.pickPortal()
+        pick = pr.pickPortal()
         pr.teardown()
-        print("New Password: " + pr.newPassword)
+        if pick is not "9":
+            print("New Password: " + pr.newPassword)
         print("Complete!")
 
 
