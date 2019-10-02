@@ -78,7 +78,8 @@ class LOLOCreator:
             if not lolo == 'BFS':
                 self.driver.find_element_by_xpath('//label[text()="LinxOnline Service Wholesale   Reporting User"]').click()
             self.driver.find_element_by_xpath('//label[text()="LinxOnline Service Wholesale User"]').click()
-            self.driver.find_element_by_xpath('//label[text()="My Network"]').click()
+            if lolo == 'BHR' or lolo =='VIAIP':
+                self.driver.find_element_by_xpath('//label[text()="My Network"]').click()
             self.driver.find_element_by_xpath('/html/body/table[4]/tbody/tr/td[2]/table[2]/tbody/tr/td[2]/table/tbody/tr[8]/td[1]/table/tbody/tr/td/form[1]/table[3]/tbody/tr/td/input[1]').click()
             alert = self.driver.switch_to.alert
             match = re.search('(E.+)\'s', alert.text)
@@ -163,7 +164,7 @@ class LOLOCreator:
 
 
 def main():
-    lolo = LOLOCreator("Cyrus Sagar", "0284888553")
+    lolo = LOLOCreator("Eloisa Santos", "0284888557")
     lolo.create()
     print("Completed!")
     lolo.teardown()
