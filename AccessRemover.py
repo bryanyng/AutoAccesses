@@ -89,6 +89,7 @@ class AccessRemover:
             self.driver.find_element_by_link_text(self.lastName.upper() + " " + self.firstName).click()
             status = Select(self.driver.find_element_by_name("user_status_flag"))
             status.select_by_visible_text("Inactive")
+            time.sleep(1)
             self.driver.find_element_by_xpath('//*[@id="editUserProfile"]/ul[2]/li[4]/input[1]').click()
         except:
             print("ViaIP Optus User not removed...")
@@ -108,10 +109,8 @@ class AccessRemover:
             self.driver.find_element_by_css_selector(
                 'button[onclick="doEdit(\'' + self.username + '\'); return false;"]').click()
             self.driver.find_element_by_xpath('//*[@id="btn-bar"]').click()
-            # FIX MODAL
             print("Please manually Click OK. Press Enter to Continue.")
             input("")
-            self.driver.find_element_by_xpath('//*[@id="modal-btn-ok"]').click()
         except:
             print("Octane User not removed...")
 
@@ -259,6 +258,7 @@ class AccessRemover:
         password.send_keys(Keys.ENTER)
         try:
             self.driver.get(r"https://billing.isphone.com.au/users.html")
+            print("Porta Access Removal does not work yet...")
         except:
             print("Porta User not removed...")
 
@@ -273,7 +273,8 @@ class AccessRemover:
             self.driver.get(r"https://frontier.aapt.com.au/s/manageusers")
             drop_down = Select(self.driver.find_element_by_id("userList"))
             drop_down.select_by_visible_text(self.lastName + ", " + self.firstName)
-            self.driver.find_element_by_xpath('//*[@id="deleteUser"]/a').click()
+            self.driver.find_element_by_xpath('//*[@id="deleteUser"]').click()
+            time.sleep(2)
             self.driver.find_element_by_xpath('//*[@id="popup_ok"]').click()
         except:
             print("Buro Frontier User not removed...")

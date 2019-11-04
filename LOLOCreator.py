@@ -34,7 +34,8 @@ class LOLOCreator:
             print("Directory ", path, " already exists.")
 
     def create(self):
-        lolo_list = ['BHR', 'VIAIP', 'BVV', 'BWA', 'BAA', 'BFS']
+        # lolo_list = ['BHR', 'VIAIP', 'BVV', 'BWA', 'BAA', 'BFS']
+        lolo_list = ['BHR']
 
         for lolo in lolo_list:
             lolo_name = lolo + self.lastName.upper()
@@ -164,7 +165,7 @@ class LOLOCreator:
 
 
 def main():
-    lolo = LOLOCreator("Eloisa Santos", "0284888557")
+    lolo = LOLOCreator("Sabrina Ongpin", "0284888539")
     lolo.create()
     print("Completed!")
     lolo.teardown()

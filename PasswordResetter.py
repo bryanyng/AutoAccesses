@@ -114,7 +114,7 @@ class PasswordResetter:
         # FIX MODAL
         print("Please manually Click OK")
         input("")
-        self.driver.find_element_by_xpath('//*[@id="modal-btn-ok"]').click()
+        # self.driver.find_element_by_xpath('//*[@id="modal-btn-ok"]').click()
         self.newPassword = newPass
 
     def clarus_genex(self):
@@ -247,8 +247,8 @@ class PasswordResetter:
         username.send_keys(self.logins.porta[0])
         password.send_keys(self.logins.porta[1])
         password.send_keys(Keys.ENTER)
-
         self.driver.get(r"https://billing.isphone.com.au/users.html")
+        print("Porta Password Reset does not work yet...")
 
     def viaip_utilibill(self):
         self.driver.get(r"https://viaip.utilibill.com.au/viaip/Login")
@@ -297,7 +297,7 @@ class PasswordResetter:
         self.driver.find_element_by_id("login").click()
         self.driver.find_element_by_id("create_link").click()
 
-        print("bu or bw?")
+        print("bu or bw or both?")
         answer = input("")
         if answer == "bu" or answer == "BU":
             if len(self.lastName) > 5:
@@ -309,6 +309,13 @@ class PasswordResetter:
                 selcomm_id = "bw" + self.lastName[0:5].lower() + self.firstName[0].lower()
             else:
                 selcomm_id = "bw" + self.lastName.lower() + self.firstName[0].lower()
+        elif answer == "both":
+            if len(self.lastName) > 5:
+                selcomm_id = "bu" + self.lastName[0:5].lower() + self.firstName[0].lower()
+                selcomm_id += " & bw" + self.lastName[0:5].lower() + self.firstName[0].lower()
+            else:
+                selcomm_id = "bu" + self.lastName.lower() + self.firstName[0].lower()
+                selcomm_id += " & bw" + self.lastName.lower() + self.firstName[0].lower()
         else:
             print("Invalid answer. Please run the script again.")
             return
@@ -318,7 +325,9 @@ class PasswordResetter:
         description = self.driver.find_element_by_id("description")
         summary.send_keys("Reset Password for a User")
         description.send_keys("Hi Team,\n\nCould you please reset the password for:\n" + selcomm_id + "\n\nThanks!")
-        self.driver.find_element_by_id("create-issue-submit").click()
+        answer = input("is this correct?")
+        if answer == "y" or answer == "Y":
+            self.driver.find_element_by_id("create-issue-submit").click()
 
     def pickPortal(self):
         print("=====================================================")

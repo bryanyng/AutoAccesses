@@ -789,12 +789,12 @@ class AccessCreator:
 
     def createAll(self):
         try:
-            self.ims()
+            # self.ims()
             self.viaip_optus()
             # self.buro_optus()
             self.supatools()
             self.buro_frontier()
-            self.cloud_frontier()
+            # self.cloud_frontier()
             self.viaip_utilibill()
             self.cloud_ultilibill()
             # self.clarus_genex()
@@ -802,9 +802,9 @@ class AccessCreator:
             self.v4_genex()
             self.octane()
             self.sonar()
-            self.iboss()
+            self.tele_iboss()
             self.porta()
-            self.selcomm()
+            # self.selcomm()
 
         except:
             print("An Error has occurred! Aborting and writing to excel sheet.")
