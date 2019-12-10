@@ -445,7 +445,10 @@ class AccessCreator:
         self.driver.find_element_by_link_text("Users").click()
         self.driver.find_element_by_xpath('//button[text()="Create User"]').click()
         time.sleep(2)  # wait for js to load
-        self.driver.find_element_by_id("EndUserActor2671createUserenabled").click()
+        user_code = self.driver.find_element_by_xpath(
+            '//td[@title=\"' + self.buro_email + '\"]/preceding-sibling::td').text
+        self.driver.find_element_by_css_selector(
+            'button[onclick=\"Users(\'' + user_code + '\', \'com.symbio.sona.actor.User\', \'User\', \'User\');').click()
         username = self.driver.find_element_by_name("username")
         password = self.driver.find_element_by_name("password")
         surname = self.driver.find_element_by_name("surname")
@@ -464,7 +467,7 @@ class AccessCreator:
         phone.send_keys("1")
         self.driver.find_element_by_xpath('//button[text()="Submit"]').click()
 
-        # Check if user exists after creation
+        # Check if user exists after creation ***BROKEN!***
         users_list = self.driver.find_element_by_id("EndUserActor2671UsersListingTable").text
         if self.buro_email in users_list:
             self.logbook.append((29, sonar_username, newPass))
@@ -592,7 +595,9 @@ class AccessCreator:
         self.driver.find_element_by_id("submit").click()
 
         self.driver.get(r"https://frontier.aapt.com.au/s/manageusers/createUserSelectPerson")
+        time.sleep(0.5)
         self.driver.find_element_by_id("createNewUser").click()
+        time.sleep(1)
         username = self.driver.find_element_by_id("usernameField")
         firstName = self.driver.find_element_by_id("firstNameField")
         lastName = self.driver.find_element_by_id("lastNameField")
@@ -642,6 +647,7 @@ class AccessCreator:
         self.driver.find_element_by_id("submit").click()
 
         self.driver.get(r"https://frontier.aapt.com.au/s/manageusers/createUserSelectPerson")
+        time.sleep(1)
         username = self.driver.find_element_by_id("usernameField")
         firstName = self.driver.find_element_by_id("firstNameField")
         lastName = self.driver.find_element_by_id("lastNameField")
@@ -789,17 +795,17 @@ class AccessCreator:
 
     def createAll(self):
         try:
-            # self.ims()
+            self.ims()
             self.viaip_optus()
             # self.buro_optus()
             self.supatools()
             self.buro_frontier()
-            # self.cloud_frontier()
+            self.cloud_frontier()
             self.viaip_utilibill()
             self.cloud_ultilibill()
             # self.clarus_genex()
             self.buro_genex()
-            self.v4_genex()
+            # self.v4_genex()
             self.octane()
             self.sonar()
             self.tele_iboss()

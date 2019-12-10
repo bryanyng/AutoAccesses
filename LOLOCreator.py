@@ -18,10 +18,12 @@ class LOLOCreator:
         self.phone = phone
 
         # Set up webdriver
-        profile = webdriver.FirefoxProfile(
-            profile_directory=r"Firefox Profile/ln545vx6.default")
-        self.driver = webdriver.Firefox(firefox_profile=profile,
-                                        executable_path=r"Drivers/geckodriver.exe")
+
+        # profile = webdriver.FirefoxProfile(
+        #     profile_directory=r"Firefox Profile/ln545vx6.default")
+        # self.driver = webdriver.Firefox(firefox_profile=profile,
+        #                                 executable_path=r"Drivers/geckodriver.exe")
+        self.driver = webdriver.Ie("Drivers/IEDriverServer.exe")
         self.driver.maximize_window()
         self.driver.implicitly_wait(60)
 
@@ -35,13 +37,13 @@ class LOLOCreator:
 
     def create(self):
         # lolo_list = ['BHR', 'VIAIP', 'BVV', 'BWA', 'BAA', 'BFS']
-        lolo_list = ['BHR']
+        lolo_list = ['BAA']
 
         for lolo in lolo_list:
             lolo_name = lolo + self.lastName.upper()
             self.driver.get("https://www.telstrawholesale.com.au/")
             self.driver.get("https://portal.telstrawholesale.com.au")
-            subprocess.call("Autoit Scripts/Select" + lolo + "Cert.exe")
+            subprocess.call("Autoit Scripts/Select" + lolo + ".exe")
             self.driver.find_element_by_link_text("User management").click()
             self.driver.get("https://shopfront.telstra.com.au/online/rne?&rne_eventType=registrar.event.DisplayUsersEvent&rne_sortBy=userName&rne_sortOrder=asc")
             self.driver.find_element_by_xpath('/html/body/table[4]/tbody/tr/td[2]/table[2]/tbody/tr/td[2]/table/tbody/tr[7]/td[2]/p[3]/input').click()
@@ -153,10 +155,7 @@ class LOLOCreator:
         self.teardown()
 
         # Set up webdriver
-        profile = webdriver.FirefoxProfile(
-            profile_directory=r"Firefox Profile/ln545vx6.default")
-        self.driver = webdriver.Firefox(firefox_profile=profile,
-                                        executable_path=r"Drivers/geckodriver.exe")
+        self.driver = webdriver.Ie("Drivers/IEDriverServer.exe")
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
