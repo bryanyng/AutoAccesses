@@ -18,12 +18,10 @@ class LOLOCreator:
         self.phone = phone
 
         # Set up webdriver
-
-        # profile = webdriver.FirefoxProfile(
-        #     profile_directory=r"Firefox Profile/ln545vx6.default")
-        # self.driver = webdriver.Firefox(firefox_profile=profile,
-        #                                 executable_path=r"Drivers/geckodriver.exe")
-        self.driver = webdriver.Ie("Drivers/IEDriverServer.exe")
+        profile = webdriver.FirefoxProfile(
+            profile_directory=r"Firefox Profile/ln545vx6.default")
+        self.driver = webdriver.Firefox(firefox_profile=profile,
+                                        executable_path=r"Drivers/geckodriver.exe")
         self.driver.maximize_window()
         self.driver.implicitly_wait(60)
 
@@ -36,14 +34,13 @@ class LOLOCreator:
             print("Directory ", path, " already exists.")
 
     def create(self):
-        # lolo_list = ['BHR', 'VIAIP', 'BVV', 'BWA', 'BAA', 'BFS']
-        lolo_list = ['BAA']
+        lolo_list = ['BHR', 'VIAIP', 'BVV', 'BWA', 'BAA', 'BFS']
 
         for lolo in lolo_list:
             lolo_name = lolo + self.lastName.upper()
             self.driver.get("https://www.telstrawholesale.com.au/")
             self.driver.get("https://portal.telstrawholesale.com.au")
-            subprocess.call("Autoit Scripts/Select" + lolo + ".exe")
+            subprocess.call("Autoit Scripts/Select" + lolo + "Cert.exe")
             self.driver.find_element_by_link_text("User management").click()
             self.driver.get("https://shopfront.telstra.com.au/online/rne?&rne_eventType=registrar.event.DisplayUsersEvent&rne_sortBy=userName&rne_sortOrder=asc")
             self.driver.find_element_by_xpath('/html/body/table[4]/tbody/tr/td[2]/table[2]/tbody/tr/td[2]/table/tbody/tr[7]/td[2]/p[3]/input').click()
@@ -60,8 +57,6 @@ class LOLOCreator:
 
             certId = self.driver.find_element_by_xpath('/html/body/table[4]/tbody/tr/td[2]/table[2]/tbody/tr/td[2]/table/tbody/tr[7]/td[2]/table[4]/tbody/tr[2]/td[1]/div').text
             pin = self.driver.find_element_by_xpath('/html/body/table[4]/tbody/tr/td[2]/table[2]/tbody/tr/td[2]/table/tbody/tr[7]/td[2]/table[4]/tbody/tr[2]/td[3]/div').text
-            print(certId)
-            print(pin)
 
             # Assign permissions to certificate
             self.driver.get("https://portal.telstrawholesale.com.au/group/twcp/user-management")
@@ -87,7 +82,7 @@ class LOLOCreator:
             alert = self.driver.switch_to.alert
             match = re.search('(E.+)\'s', alert.text)
             uniqueId = match.group(1)
-            print(uniqueId)
+
             alert.accept()
 
             # Create LOLO Ordering Profile
@@ -113,41 +108,12 @@ class LOLOCreator:
             self.driver.find_element_by_xpath('/html/body/form/table[4]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/center/table/tbody/tr[17]/td/table/tbody/tr[3]/td[2]/a[1]/img').click()
             self.driver.switch_to.window(self.driver.window_handles[1])
             self.driver.find_element_by_xpath('/html/body/form/table[4]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/center/table/tbody/tr[18]/td/a/img').click()
-            self.reopen()
 
-            # Create and save certificate
-            self.driver.get("https://register.telstra.com.au/online/reg.html")
-            certId_input = self.driver.find_element_by_id("identifier")
-            pin_input = self.driver.find_element_by_id("pin")
-            certId_input.send_keys(certId)
-            pin_input.send_keys(pin)
-            self.driver.find_element_by_xpath('/html/body/table[4]/tbody/tr/td[2]/table[2]/tbody/tr/td[2]/table/tbody/tr[7]/td[2]/form/table[2]/tbody/tr/td/div/input[1]').click()
-            email = self.driver.find_element_by_id("emailAddress")
-            email_confirm = self.driver.find_element_by_id("emailAddressConfirm")
-            email.send_keys(self.buro_email)
-            email_confirm.send_keys(self.buro_email)
-            self.driver.find_element_by_xpath('/html/body/table[4]/tbody/tr/td[2]/table[2]/tbody/tr/td[2]/table/tbody/tr[7]/td[2]/form[2]/table[2]/tbody/tr[2]/td/input[1]').click()
-            certName = self.driver.find_element_by_id("certName")
-            certName.send_keys(lolo_name)
-            self.driver.find_element_by_xpath('/html/body/table[4]/tbody/tr/td[2]/table[2]/tbody/tr/td[2]/table/tbody/tr[7]/td[2]/form/table[2]/tbody/tr[2]/td/input').click()
-            alert = self.driver.switch_to.alert
-            alert.accept()
+            print("===" + lolo_name + "===")
+            print(certId)
+            print(pin)
+            print(uniqueId)
 
-            print(lolo_name)
-            # subprocess.call("Autoit Scripts/NewTab.exe")
-            # self.driver.get("about:preferences")
-            # self.driver.find_element_by_id("category-privacy").click()
-            # self.driver.find_element_by_id("viewCertificatesButton").click()
-            # subprocess.call("Autoit Scripts/ClickFirstCert.exe")
-            input("Please save a copy of the certificate...Press Enter to continue.")
-
-            self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/a').click()
-            subprocess.call("Autoit Scripts/Accept.exe")
-            secretQ = self.driver.find_element_by_id("secretQ")
-            secretA = self.driver.find_element_by_id("secretA")
-            secretQ.send_keys("What is the name of the company you work in?")
-            secretA.send_keys("Buroserv")
-            self.driver.find_element_by_xpath('/html/body/table[4]/tbody/tr/td[2]/table[2]/tbody/tr/td[2]/table/tbody/tr[7]/td[2]/form/table[2]/tbody/tr[2]/td/input').click()
             if lolo_name is not 'BFS' or len(lolo_list) is not 1:
                 self.reopen()
 
@@ -164,7 +130,7 @@ class LOLOCreator:
 
 
 def main():
-    lolo = LOLOCreator("Sabrina Ongpin", "0284888539")
+    lolo = LOLOCreator("Sabrina Ongpin", "0284888556")
     lolo.create()
     print("Completed!")
     lolo.teardown()
