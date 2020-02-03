@@ -35,6 +35,7 @@ class LOLOCreator:
 
     def create(self):
         lolo_list = ['BHR', 'VIAIP', 'BVV', 'BWA', 'BAA', 'BFS']
+        # lolo_list = ['BFS']
 
         for lolo in lolo_list:
             lolo_name = lolo + self.lastName.upper()
@@ -68,7 +69,7 @@ class LOLOCreator:
             self.driver.find_element_by_xpath('//label[text()="LinxOnline Ordering External User"]').click()
             self.driver.find_element_by_xpath('//label[text()="B2BLineTest"]').click()
             self.driver.find_element_by_xpath('//label[text()="TWCP Line Test Summary"]').click()
-            if not lolo == 'BAA':
+            if lolo != 'BAA' and lolo != 'BVV':
                 self.driver.find_element_by_xpath('//label[text()="TWCP Online User"]').click()
             self.driver.find_element_by_xpath('//label[text()="TWCP Line Test Modem Resynch"]').click()
             self.driver.find_element_by_xpath('//label[text()="NBN LOLO SP Admin"]').click()
@@ -86,28 +87,28 @@ class LOLOCreator:
             alert.accept()
 
             # Create LOLO Ordering Profile
-            self.driver.get("https://portal.telstrawholesale.com.au/group/twcp/ordering")
-            self.driver.get("https://twlinxonlineordering.telstra.com.au/LOLOPRODapp/LoloSplash.jsp")
-            time.sleep(2)
-            self.driver.switch_to.window(self.driver.window_handles[1])
-            self.driver.find_element_by_xpath('/html/body/form/table/tbody/tr[2]/td[2]/table/tbody[2]/tr[2]/td/a[1]/img').click()
-            time.sleep(2)
-            self.driver.switch_to.window(self.driver.window_handles[1])
-            self.driver.find_element_by_link_text("Admin").click()
-            self.driver.find_element_by_link_text("Maintain User Profiles").click()
-            time.sleep(1)
-            lastName = self.driver.find_element_by_xpath('/html/body/form/table[4]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/center/table/tbody/tr[10]/td[2]/input')
-            firstName = self.driver.find_element_by_xpath('/html/body/form/table[4]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/center/table/tbody/tr[11]/td[2]/input')
-            uniqueId_input = self.driver.find_element_by_xpath('/html/body/form/table[4]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/center/table/tbody/tr[12]/td[2]/input')
-            lastName.send_keys(self.lastName)
-            firstName.send_keys(self.firstName)
-            uniqueId_input.send_keys(uniqueId)
-
-            input("Please add permissions to this user...Press Enter to continue.")
-
-            self.driver.find_element_by_xpath('/html/body/form/table[4]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/center/table/tbody/tr[17]/td/table/tbody/tr[3]/td[2]/a[1]/img').click()
-            self.driver.switch_to.window(self.driver.window_handles[1])
-            self.driver.find_element_by_xpath('/html/body/form/table[4]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/center/table/tbody/tr[18]/td/a/img').click()
+            # self.driver.get("https://portal.telstrawholesale.com.au/group/twcp/ordering")
+            # self.driver.get("https://twlinxonlineordering.telstra.com.au/LOLOPRODapp/LoloSplash.jsp")
+            # time.sleep(2)
+            # self.driver.switch_to.window(self.driver.window_handles[1])
+            # self.driver.find_element_by_xpath('/html/body/form/table/tbody/tr[2]/td[2]/table/tbody[2]/tr[2]/td/a[1]/img').click()
+            # time.sleep(2)
+            # self.driver.switch_to.window(self.driver.window_handles[1])
+            # self.driver.find_element_by_link_text("Admin").click()
+            # self.driver.find_element_by_link_text("Maintain User Profiles").click()
+            # time.sleep(1)
+            # lastName = self.driver.find_element_by_xpath('/html/body/form/table[4]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/center/table/tbody/tr[10]/td[2]/input')
+            # firstName = self.driver.find_element_by_xpath('/html/body/form/table[4]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/center/table/tbody/tr[11]/td[2]/input')
+            # uniqueId_input = self.driver.find_element_by_xpath('/html/body/form/table[4]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/center/table/tbody/tr[12]/td[2]/input')
+            # lastName.send_keys(self.lastName)
+            # firstName.send_keys(self.firstName)
+            # uniqueId_input.send_keys(uniqueId)
+            #
+            # input("Please add permissions to this user...Press Enter to continue.")
+            #
+            # self.driver.find_element_by_xpath('/html/body/form/table[4]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/center/table/tbody/tr[17]/td/table/tbody/tr[3]/td[2]/a[1]/img').click()
+            # self.driver.switch_to.window(self.driver.window_handles[1])
+            # self.driver.find_element_by_xpath('/html/body/form/table[4]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/center/table/tbody/tr[18]/td/a/img').click()
 
             print("===" + lolo_name + "===")
             print(certId)
@@ -121,7 +122,10 @@ class LOLOCreator:
         self.teardown()
 
         # Set up webdriver
-        self.driver = webdriver.Ie("Drivers/IEDriverServer.exe")
+        profile = webdriver.FirefoxProfile(
+            profile_directory=r"Firefox Profile/ln545vx6.default")
+        self.driver = webdriver.Firefox(firefox_profile=profile,
+                                        executable_path=r"Drivers/geckodriver.exe")
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
@@ -130,7 +134,7 @@ class LOLOCreator:
 
 
 def main():
-    lolo = LOLOCreator("Sabrina Ongpin", "0284888556")
+    lolo = LOLOCreator("Orkhan Budagov", "0284888568")
     lolo.create()
     print("Completed!")
     lolo.teardown()

@@ -131,6 +131,7 @@ class AccessCreator:
         username.send_keys(self.logins.viaip_optus[0])
         password.send_keys(self.logins.viaip_optus[1])
         self.driver.find_element_by_name("LOGIN").click()
+        time.sleep(2)
         self.driver.find_element_by_link_text("Administration").click()
         self.driver.find_element_by_xpath('//span[text()="User Management"]').click()
 
@@ -199,6 +200,7 @@ class AccessCreator:
         username.send_keys(self.logins.buro_optus[0])
         password.send_keys(self.logins.buro_optus[1])
         self.driver.find_element_by_name("LOGIN").click()
+        time.sleep(2)
         self.driver.find_element_by_link_text("Administration").click()
         self.driver.find_element_by_xpath('//span[text()="User Management"]').click()
 
@@ -795,8 +797,8 @@ class AccessCreator:
 
     def createAll(self):
         try:
-            self.ims()
-            self.viaip_optus()
+            # self.ims()
+            # self.viaip_optus()
             # self.buro_optus()
             self.supatools()
             self.buro_frontier()
