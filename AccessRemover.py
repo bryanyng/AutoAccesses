@@ -366,11 +366,11 @@ class AccessRemover:
         self.driver.find_element_by_id("create-issue-submit").click()
 
     def removeAll(self):
-        self.ims()
-        self.viaip_optus()
-        self.supatools()
-        self.buro_frontier()
-        self.cloud_frontier()
+        # self.ims()
+        # self.viaip_optus()
+        # self.supatools()
+        # self.buro_frontier()
+        # self.cloud_frontier()
         self.viaip_utilibill()
         self.cloud_ultilibill()
         # self.clarus_genex()
